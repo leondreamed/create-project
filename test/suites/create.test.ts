@@ -29,15 +29,11 @@ describe('creates valid project', () => {
 	});
 
 	test('renovate.json should not exist', () => {
-		expect(fs.existsSync(path.join(projectName, 'renovate.json'))).toBe(false);
+		expect(fs.existsSync(path.join(projectFolder, 'renovate.json'))).toBe(false);
 	});
 
-	test('remote origin should not exist', () => {
-		expect(
-			execaCommandSync('git remote', { cwd: projectFolder }).stdout.includes(
-				'origin'
-			)
-		).toBe(false);
+	test('the .git folder should not exist', () => {
+		expect(fs.existsSync(path.join(projectFolder, '.git'))).toBe(false);
 	});
 
 	test('the project name of package.json should be equal to the command-line name', () => {
