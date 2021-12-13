@@ -1,7 +1,12 @@
 {
 	"extends": "@leonzalion/tsconfig/tsconfig.json",
 	"compilerOptions": {
-		"outDir": "dist"
+		"outDir": "dist",
+		"paths": {
+			"~/*": [
+				"./src/*"
+			]
+		}
 	},
 	"include": [
 		"./src"
