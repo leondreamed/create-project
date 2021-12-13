@@ -20,6 +20,10 @@ describe('creates valid project', () => {
 		execaCommandSync(`pnpm start ${projectName} ${projectFolder}`);
 	});
 
+	afterAll(() => {
+		removeMyProject();
+	});
+
 	test('the project folder should exist', () => {
 		expect(fs.existsSync(projectFolder)).toBe(true);
 	});
@@ -41,9 +45,5 @@ describe('creates valid project', () => {
 			fs.readFileSync(path.join(projectFolder, 'package.json')).toString()
 		);
 		expect(packageJson.name === projectName).toBe(true);
-	});
-
-	afterAll(() => {
-		removeMyProject();
 	});
 });
