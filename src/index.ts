@@ -13,6 +13,8 @@ program
 			`git clone https://github.com/leonzalion/typescript-template ${folder}`
 		);
 
+		execaCommandSync('git remote remove origin', { cwd: folder });
+
 		fs.rmSync(path.join(folder, 'renovate.json'));
 
 		await replace.replaceInFile({
