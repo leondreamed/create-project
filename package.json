@@ -3,6 +3,7 @@
 	"version": "1.0.2",
 	"main": "dist/index.js",
 	"license": "MIT",
+	"type": "module",
 	"bin": {
 		"create-ts-project": "dist/index.js"
 	},
