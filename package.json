@@ -1,8 +1,11 @@
 {
 	"name": "@leonzalion/create-ts-project",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"main": "dist/index.js",
 	"license": "MIT",
+	"bin": {
+		"create-ts-project": "dist/index.js"
+	},
 	"prettier": "@leonzalion/prettier-config",
 	"commitlint": {
 		"extends": [

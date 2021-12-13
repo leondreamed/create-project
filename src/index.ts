@@ -9,7 +9,6 @@ program
 	.arguments('<name> [folder]')
 	.action(async (name, folderOrUndefined) => {
 		const folder = folderOrUndefined ?? name;
-		console.log('hi');
 		execaCommandSync(
 			`git clone https://github.com/leonzalion/typescript-template ${folder}`
 		);
