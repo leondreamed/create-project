@@ -1,14 +1,11 @@
-import { Option,program } from 'commander';
-import { execaCommandSync } from 'execa';
+import { Option, program } from 'commander';
+import MergeTrees from 'merge-trees';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import replace from 'replace-in-file';
 
-const projectTypeToRepo = {
-	typescript: 'https://github.com/leonzalion/typescript-template',
-	electron: 'https://github.com/leonzalion/electron-vite-typescript-template',
-} as const;
-type ProjectType = keyof typeof projectTypeToRepo;
+import { Template } from './types/template';
+import { getTemplateFolder } from './utils/template';
 
 program
 	.version('0.0.1')
@@ -24,11 +21,16 @@ program
 		).choices(['typescript', 'electron'])
 	)
 	.action(async (name: string, optionalFolder: string | undefined) => {
-		const projectType = program.opts().type as ProjectType;
+		const projectType = program.opts().type;
 		const folder = optionalFolder ?? name;
 
-		const repo = projectTypeToRepo[projectType];
-		execaCommandSync(`git clone ${repo} ${folder}`);
+		const templateFolder = getTemplateFolder(projectType);
+		const commonTemplateFolder = getTemplateFolder(Template.common);
+		const mergeTrees = new MergeTrees(
+			[templateFolder, commonTemplateFolder],
+			folder
+		);
+		mergeTrees.merge();
 
 		// Remove the .git folder
 		fs.rmSync(path.join(folder, '.git'), { recursive: true });

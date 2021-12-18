@@ -1,5 +1,5 @@
 # Usage
 
 ```zsh
-pnpm create @leonzalion/ts-project
-
+pnpm create @leonzalion/project name folder -- -t <electron|typescript>
+```
