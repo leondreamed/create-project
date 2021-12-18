@@ -1,17 +1,34 @@
-import { program } from 'commander';
+import { program, Option } from 'commander';
 import { execaCommandSync } from 'execa';
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import replace from 'replace-in-file';
+
+const projectTypeToRepo = {
+	typescript: 'https://github.com/leonzalion/typescript-template',
+	electron: 'https://github.com/leonzalion/electron-vite-typescript-template',
+} as const;
+type ProjectType = keyof typeof projectTypeToRepo;
 
 program
 	.version('0.0.1')
-	.arguments('<name> [folder]')
-	.action(async (name, folderOrUndefined) => {
-		const folder = folderOrUndefined ?? name;
-		execaCommandSync(
-			`git clone https://github.com/leonzalion/typescript-template ${folder}`
-		);
+	.description('Create a new project from a template')
+	.name('create-project')
+	.showHelpAfterError()
+	.argument('<name>')
+	.argument('[folder]')
+	.addOption(
+		new Option(
+			'-t, --type <project-type>',
+			'the type of the project to create'
+		).choices(['typescript', 'electron'])
+	)
+	.action(async (name: string, optionalFolder: string | undefined) => {
+		const projectType = program.opts()['type'] as ProjectType;
+		const folder = optionalFolder ?? name;
+
+		const repo = projectTypeToRepo[projectType];
+		execaCommandSync(`git clone ${repo} ${folder}`);
 
 		// Remove the .git folder
 		fs.rmSync(path.join(folder, '.git'), { recursive: true });
