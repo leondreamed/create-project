@@ -1,8 +1,14 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { projectFolder, projectName } from './project';
 
-export function checkCommon() {
+import type { ProjectType } from '~test/types/project';
+
+import { getProjectFolder, getProjectName } from './project';
+
+export function checkCommon(type: ProjectType) {
+	const projectFolder = getProjectFolder(type);
+	const projectName = getProjectName(type);
+
 	test('the project folder should exist', () => {
 		expect(fs.existsSync(projectFolder)).toBe(true);
 	});

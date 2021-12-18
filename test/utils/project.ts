@@ -1,11 +1,16 @@
 import * as fs from 'node:fs';
-import { rootPath } from './path';
 import * as path from 'node:path';
 
-export const projectName = 'my-project';
-export const projectFolder = path.join(rootPath, 'my-folder');
+import type { ProjectType } from '~test/types/project';
 
-export function removeMyProject() {
+import { rootPath } from './path';
+
+export const getProjectName = (type: ProjectType) => `my-${type}-project`;
+export const getProjectFolder = (type: ProjectType) =>
+	path.join(rootPath, `my-${type}-folder`);
+
+export function removeMyProject(type: ProjectType) {
+	const projectFolder = getProjectFolder(type);
 	if (fs.existsSync(projectFolder)) {
 		fs.rmSync(projectFolder, { recursive: true });
 	}

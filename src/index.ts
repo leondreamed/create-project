@@ -1,7 +1,7 @@
-import { program, Option } from 'commander';
+import { Option,program } from 'commander';
 import { execaCommandSync } from 'execa';
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import replace from 'replace-in-file';
 
 const projectTypeToRepo = {
@@ -24,7 +24,7 @@ program
 		).choices(['typescript', 'electron'])
 	)
 	.action(async (name: string, optionalFolder: string | undefined) => {
-		const projectType = program.opts()['type'] as ProjectType;
+		const projectType = program.opts().type as ProjectType;
 		const folder = optionalFolder ?? name;
 
 		const repo = projectTypeToRepo[projectType];

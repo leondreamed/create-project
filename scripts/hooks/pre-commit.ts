@@ -14,6 +14,4 @@ function precommit() {
 	}
 }
 
-if (require.main === module) {
-	precommit();
-}
+precommit();
