@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"type": "module",
 	"bin": {
-		"create-ts-project": "dist/index.js"
+		"create-project": "dist/index.js"
 	},
 	"prettier": "@leonzalion/prettier-config",
 	"commitlint": {
