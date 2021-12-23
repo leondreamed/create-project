@@ -2,10 +2,11 @@
 	"extends": "./tsconfig.json",
 	"include": [
 		"src/**/*.ts",
+		"scripts/**/*.ts",
 		"jest.config.js",
 		".eslintrc.cjs",
 		".markdownlint.cjs",
-		"lint-staged.config.mjs"
+		"lint-staged.config.mjs",
 	],
 	"exclude": ["src/templates"]
 }

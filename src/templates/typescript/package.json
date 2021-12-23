@@ -14,7 +14,6 @@
 		"setup": "simple-git-hooks",
 		"start": "node --loader ts-node/esm ./src/index.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
-		"build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
 		"prepublish": "pnpm test && pnpm build",
 		"lint": "eslint --cache --fix src",
 		"prettier": "prettier --write src",
