@@ -35,8 +35,12 @@ program
 		const commonTemplateFolder = getTemplateFolder(TemplateOption.common);
 		fs.mkdirSync(folder, { recursive: true });
 
-		await recursiveCopy(templateFolder, folder);
-		await recursiveCopy(commonTemplateFolder, folder);
+		await recursiveCopy(templateFolder, folder, {
+			dot: true,
+		});
+		await recursiveCopy(commonTemplateFolder, folder, {
+			dot: true,
+		});
 
 		await replace.replaceInFile({
 			files: path.join(folder, 'package.json'),
