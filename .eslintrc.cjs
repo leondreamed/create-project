@@ -1,10 +1,9 @@
-/* eslint-env node */
+/* eslint-disable */
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const createAlias = require('@leonzalion/eslint-config/alias');
+const createAlias = require('@leonzalion/eslint-config/alias.cjs');
 
 module.exports = {
 	extends: ['@leonzalion/eslint-config'],
-	parserOptions: { tsconfigRootDir: __dirname },
-	settings: createAlias({ '~': './src', '~test': './test' }),
+	parserOptions: {project: ['./tsconfig.eslint.json']},
+	settings: createAlias({'~': './src', '~test': './test'}),
 };

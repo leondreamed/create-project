@@ -20,7 +20,7 @@
 		"setup": "simple-git-hooks",
 		"postinstall": "pnpm run setup",
 		"start": "node --loader ts-node/esm ./src/create-project.ts",
-		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
+		"test": "xo && NODE_OPTIONS=--experimental-vm-modules jest",
 		"build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
 		"prepublish": "pnpm build",
 		"lint": "eslint --fix src",
@@ -41,7 +41,7 @@
 		"@leonzalion/prettier-config": "latest",
 		"@leonzalion/tsconfig": "latest",
 		"@types/jest": "^27.0.3",
-		"@types/node": "^16.11.14",
+		"@types/node": "^16.11.17",
 		"eslint": "^8.5.0",
 		"execa": "^6.0.0",
 		"jest": "^27.4.5",
@@ -52,13 +52,17 @@
 		"ts-jest": "^27.1.2",
 		"ts-node": "^10.4.0",
 		"tsc-alias": "^1.5.0",
-		"typescript": "^4.5.4"
+		"typescript": "^4.5.4",
+		"xo": "^0.47.0"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "node --loader ts-node/esm ./scripts/hooks/pre-commit.ts",
 		"pre-push": "node --loader ts-node/esm ./scripts/hooks/pre-push.ts"
 	},
 	"lint-staged": {
-    "*.{js,ts,vue}": ["pnpm run lint", "pnpm run prettier"]
-  }
+		"*.{js,ts,vue}": [
+			"pnpm run lint",
+			"pnpm run prettier"
+		]
+	}
 }

@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
@@ -10,6 +10,7 @@ const config = {
 	extensionsToTreatAsEsm: ['.ts'],
 	globals: {
 		'ts-jest': {
+			// eslint-disable-next-line @typescript-eslint/naming-convention
 			useESM: true,
 			tsconfig: path.join(__dirname, 'test/tsconfig.json'),
 		},
@@ -23,5 +24,4 @@ const config = {
 	},
 };
 
-// eslint-disable-next-line import/no-default-export
 export default config;
