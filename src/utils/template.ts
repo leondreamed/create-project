@@ -1,7 +1,14 @@
 import path from 'node:path';
 
 import { templatesPath } from './paths.js';
-import type { Template } from '~/types/template';
+import { TemplateOption } from '~/types/template.js';
 
-export const getTemplateFolder = (template: Template) =>
-	path.join(templatesPath, template);
+const templateOptionToName = {
+	[TemplateOption.electron]: 'electron-typescript-vite',
+	[TemplateOption.typescript]: 'typescript',
+	[TemplateOption.common]: 'common',
+};
+export const getTemplateName = (templateOption: TemplateOption) =>
+	templateOptionToName[templateOption];
+export const getTemplateFolder = (templateOption: TemplateOption) =>
+	path.join(templatesPath, templateOptionToName[templateOption]);

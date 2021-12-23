@@ -1,1 +1,1 @@
-# Typescript Template
+# my-typescript-project

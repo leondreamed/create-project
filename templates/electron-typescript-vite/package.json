@@ -1,5 +1,5 @@
 {
-  "name": "electron-vite-typescript-template",
+  "name": "electron-typescript-vite-template",
   "private": true,
   "engines": {
     "node": ">=v14"

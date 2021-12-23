@@ -1,1 +1,1 @@
-# Electron Vite Typescript Template
+# Electron Vite hi

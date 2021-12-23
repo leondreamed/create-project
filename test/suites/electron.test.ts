@@ -1,11 +1,11 @@
-import { execaCommandSync } from 'execa';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { execaCommandSync } from 'execa';
 
-import { ProjectType } from '~test/types/project';
-import { checkCommon } from '~test/utils/check';
-import { getCreateProjectCommand } from '~test/utils/command';
-import { getProjectFolder, removeMyProject } from '~test/utils/project';
+import { ProjectType } from '~test/types/project.js';
+import { checkCommon } from '~test/utils/check.js';
+import { getCreateProjectCommand } from '~test/utils/command.js';
+import { getProjectFolder, removeMyProject } from '~test/utils/project.js';
 
 describe('creates valid Electron project', () => {
 	beforeAll(() => {

@@ -1,5 +1,5 @@
 {
-	"name": "typescript-template",
+	"name": "my-typescript-project",
 	"version": "1.0.0",
 	"main": "dist/index.js",
 	"type": "module",

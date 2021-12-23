@@ -1,5 +1,5 @@
-export enum Template {
+export enum TemplateOption {
 	typescript = 'typescript',
-	electronTypescriptVite = 'electron-typescript-vite',
+	electron = 'electron',
 	common = 'common',
 }

@@ -1,9 +1,8 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-import type { ProjectType } from '~test/types/project';
-
-import { getProjectFolder, getProjectName } from './project';
+import { getProjectFolder, getProjectName } from './project.js';
+import type { ProjectType } from '~test/types/project.js';
 
 export function checkCommon(type: ProjectType) {
 	const projectFolder = getProjectFolder(type);
@@ -24,9 +23,10 @@ export function checkCommon(type: ProjectType) {
 	});
 
 	test('the project name of package.json should be equal to the command-line name', () => {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const packageJson = JSON.parse(
 			fs.readFileSync(path.join(projectFolder, 'package.json')).toString()
 		);
-		expect(packageJson.name === projectName).toBe(true);
+		expect(packageJson.name).toEqual(projectName);
 	});
 }

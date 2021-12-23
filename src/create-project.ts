@@ -1,12 +1,12 @@
-import * as fs from 'node:fs';
-import * as path from 'node:path';
+import path from 'node:path';
+import fs from 'node:fs';
 import process from 'node:process';
 import { Option, program } from 'commander';
 import MergeTrees from 'merge-trees';
 import replace from 'replace-in-file';
 
-import { Template } from './types/template.js';
-import { getTemplateFolder } from './utils/template.js';
+import { TemplateOption } from './types/template.js';
+import { getTemplateFolder, getTemplateName } from './utils/template.js';
 
 program
 	.version('0.0.1')
@@ -24,32 +24,25 @@ program
 	)
 	.action(async (name: string, optionalFolder: string | undefined) => {
 		const _isLibrary = program.opts().library as boolean;
-		const projectType = program.opts().type as Template;
+		const templateOption = program.opts().type as TemplateOption;
 		const folder = optionalFolder ?? name;
 
-		const templateFolder = getTemplateFolder(projectType);
-		const commonTemplateFolder = getTemplateFolder(Template.common);
+		const templateFolder = getTemplateFolder(templateOption);
+		const templateName = getTemplateName(templateOption);
+		const commonTemplateFolder = getTemplateFolder(TemplateOption.common);
 		const mergeTrees = new MergeTrees(
 			[templateFolder, commonTemplateFolder],
 			folder
 		);
 		mergeTrees.merge();
 
-		// Remove the .git folder
-		fs.rmSync(path.join(folder, '.git'), { recursive: true });
-		fs.rmSync(path.join(folder, 'renovate.json'));
-
 		await replace.replaceInFile({
 			files: path.join(folder, 'package.json'),
-			from: /typescript-template/g,
+			from: new RegExp(`${templateName}-template`, 'g'),
 			to: name,
 		});
 
-		await replace.replaceInFile({
-			files: path.join(folder, 'readme.md'),
-			from: /Typescript Template/g,
-			to: name,
-		});
+		fs.writeFileSync(path.join(folder, 'readme.md'), name);
 	});
 
 program.parse(process.argv);

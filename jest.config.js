@@ -16,11 +16,12 @@ const config = {
 		},
 	},
 	transform: {},
+	resolver: 'ts-jest-resolver',
 	preset: 'ts-jest',
 	testEnvironment: 'node',
 	moduleNameMapper: {
-		'~/(.*)$': '<rootDir>/src/$1',
-		'~test/(.*)$': '<rootDir>/test/$1',
+		'~/(.*)\\.js$': '<rootDir>/src/$1',
+		'~test/(.*)\\.js$': '<rootDir>/test/$1',
 	},
 };
 
