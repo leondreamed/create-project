@@ -12,5 +12,5 @@ execaCommandSync('pnpm i --lockfile-only', {
 	cwd: path.join(rootPath, './src/templates/electron-typescript-vite'),
 });
 
-execaCommandSync('tsc');
+execaCommandSync('tsc -p tsconfig.build.json');
 execaCommandSync('tsc-alias -p tsconfig.build.json');
