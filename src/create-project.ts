@@ -2,8 +2,8 @@ import path from 'node:path';
 import fs from 'node:fs';
 import process from 'node:process';
 import { Option, program } from 'commander';
-import MergeTrees from 'merge-trees';
 import replace from 'replace-in-file';
+import recursiveCopy from 'recursive-copy';
 
 import { TemplateOption } from './types/template.js';
 import { getTemplateFolder, getTemplateName } from './utils/template.js';
@@ -33,12 +33,10 @@ program
 		const templateFolder = getTemplateFolder(templateOption);
 		const templateName = getTemplateName(templateOption);
 		const commonTemplateFolder = getTemplateFolder(TemplateOption.common);
-		const mergeTrees = new MergeTrees(
-			[templateFolder, commonTemplateFolder],
-			folder
-		);
-		mergeTrees.merge();
-		console.log(folder);
+		fs.mkdirSync(folder, { recursive: true });
+
+		await recursiveCopy(templateFolder, folder);
+		await recursiveCopy(commonTemplateFolder, folder);
 
 		await replace.replaceInFile({
 			files: path.join(folder, 'package.json'),

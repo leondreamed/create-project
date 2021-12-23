@@ -23,7 +23,7 @@
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
 		"prepublish": "pnpm build",
-		"lint": "eslint --fix src",
+		"lint": "eslint --fix",
 		"prettier": "prettier --write src",
 		"tc": "tsc --noEmit"
 	},
@@ -31,6 +31,7 @@
 		"commander": "^8.3.0",
 		"execa": "^6.0.0",
 		"merge-trees": "^2.0.0",
+		"recursive-copy": "^2.0.13",
 		"replace-in-file": "^6.3.2",
 		"tsconfig-paths": "^3.12.0"
 	},
