@@ -10,7 +10,7 @@
 		"cleanup": false
 	},
 	"bin": {
-		"create-project": "dist/create-project.js"
+		"create-project": "create-project.js"
 	},
 	"prettier": "@leonzalion/prettier-config",
 	"commitlint": {
