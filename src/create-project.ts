@@ -25,7 +25,10 @@ program
 	.action(async (name: string, optionalFolder: string | undefined) => {
 		const _isLibrary = program.opts().library as boolean;
 		const templateOption = program.opts().type as TemplateOption;
-		const folder = optionalFolder ?? name;
+		let folder = optionalFolder ?? name;
+		if (!folder.startsWith('/')) {
+			folder = path.join(process.cwd(), folder);
+		}
 
 		const templateFolder = getTemplateFolder(templateOption);
 		const templateName = getTemplateName(templateOption);
@@ -35,6 +38,7 @@ program
 			folder
 		);
 		mergeTrees.merge();
+		console.log(folder);
 
 		await replace.replaceInFile({
 			files: path.join(folder, 'package.json'),

@@ -6,7 +6,7 @@ import { ProjectType } from '~test/types/project.js';
 
 export const getProjectName = (type: ProjectType) => `my-${type}-project`;
 export const getProjectFolder = (type: ProjectType) =>
-	path.join(rootPath, `my-${type}-folder`);
+	path.join(rootPath, `temp/my-${type}-folder`);
 export function removeMyProject(type: ProjectType) {
 	const projectFolder = getProjectFolder(type);
 	if (fs.existsSync(projectFolder)) {
