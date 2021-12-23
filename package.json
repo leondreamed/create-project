@@ -1,6 +1,6 @@
 {
 	"name": "@leonzalion/create-project",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"main": "create-project.js",
 	"license": "MIT",
 	"type": "module",
