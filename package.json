@@ -25,7 +25,7 @@
 		"prepare": "pnpm run setup",
 		"start": "node --no-warnings --loader @leonzalion/tsconfig/loader.js ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
-		"build": "rimraf dist && tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json && cp package.json dist/",
+		"build": "rimraf dist && tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json && cp -r package.json src/templates dist/",
 		"prepublish": "pnpm build",
 		"lint": "eslint --cache --fix src/**",
 		"prettier": "prettier --write src",
