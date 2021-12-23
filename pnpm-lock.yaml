@@ -34,7 +34,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 15.0.0
   '@commitlint/config-conventional': 15.0.0
-  '@leonzalion/eslint-config': 1.0.27_eslint@8.5.0+typescript@4.5.4
+  '@leonzalion/eslint-config': 1.0.35_eslint@8.5.0+typescript@4.5.4
   '@leonzalion/markdownlint-config': 1.0.0
   '@leonzalion/prettier-config': 1.0.2_prettier@2.5.1
   '@leonzalion/tsconfig': 1.0.6
@@ -798,8 +798,8 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@leonzalion/eslint-config/1.0.27_eslint@8.5.0+typescript@4.5.4:
-    resolution: {integrity: sha512-wIW7vNGu0zSzbMbhJqa1gxBK/hIBsBv7i/c/0flFREVZW0Yl6vBJAdoUdzt3A+Iv1pMWwzYkjb4YhAF/DBIH+g==}
+  /@leonzalion/eslint-config/1.0.35_eslint@8.5.0+typescript@4.5.4:
+    resolution: {integrity: sha512-VKUm672bGbCqPqem10CKwUAYBXGIB3NbI6A2Osw04pMRre4K+B1qvBXz9T1EJWkCEGBqZO4FIp2y7bOjQY9FPw==}
     peerDependencies:
       eslint: ^8.4.0
     dependencies:

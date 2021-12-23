@@ -1,9 +1,10 @@
+/* eslint-disable unicorn/no-abusive-eslint-disable */
 /* eslint-disable */
 
-const createAlias = require('@leonzalion/eslint-config/alias.cjs');
+const createAliases = require('@leonzalion/eslint-config/alias.js');
 
 module.exports = {
 	extends: ['@leonzalion/eslint-config'],
-	parserOptions: {project: ['./tsconfig.eslint.json']},
-	settings: createAlias({'~': './src', '~test': './test'}),
+	parserOptions: { project: ['./tsconfig.eslint.json'] },
+	settings: createAliases({ '~': './src', '~test': './test' }),
 };
