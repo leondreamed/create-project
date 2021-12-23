@@ -46,6 +46,9 @@
 		"pre-push": "node --loader ts-node/esm ./scripts/hooks/pre-push.ts"
 	},
 	"lint-staged": {
-    "*.{js,ts,vue}": ["pnpm run lint", "pnpm run prettier"]
-  }
+		"*.{js,ts,vue}": [
+			"pnpm run lint",
+			"pnpm run prettier"
+		]
+	}
 }

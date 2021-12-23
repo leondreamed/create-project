@@ -6,13 +6,13 @@
 			href="https://github.com/cawa-93/vite-electron-builder"
 			rel="noopener"
 			target="_blank"
-		>vite-electron-builder documentation</a
+			>vite-electron-builder documentation</a
 		>.
 	</p>
 
 	<p>
 		<a href="https://vitejs.dev/guide/features.html" target="_blank"
-		>Vite Documentation</a
+			>Vite Documentation</a
 		>
 		|
 		<a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>

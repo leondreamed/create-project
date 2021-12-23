@@ -4,7 +4,8 @@
 		"src/**/*.ts",
 		"jest.config.js",
 		".eslintrc.cjs",
-		".markdownlint.cjs"
+		".markdownlint.cjs",
+		"lint-staged.config.mjs"
 	],
 	"exclude": ["src/templates"]
 }
