@@ -3,9 +3,10 @@
 
 const createAliases = require('@leonzalion/eslint-config/alias.js');
 const path = require('path');
+const { defineConfig } = require('eslint-define-config');
 
-module.exports = {
+module.exports = defineConfig({
 	extends: ['@leonzalion/eslint-config'],
 	parserOptions: { project: path.resolve(__dirname, 'tsconfig.eslint.json') },
 	settings: createAliases({ '~': './src', '~test': './test' }),
-};
+});

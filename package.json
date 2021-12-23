@@ -1,12 +1,14 @@
 {
 	"name": "@leonzalion/create-project",
 	"version": "1.0.1",
-	"main": "dist/create-project.js",
+	"main": "create-project.js",
 	"license": "MIT",
 	"type": "module",
-	"files": [
-		"dist"
-	],
+	"np": {
+		"contents": "./dist",
+		"tests": false,
+		"cleanup": false
+	},
 	"bin": {
 		"create-project": "dist/create-project.js"
 	},
@@ -17,13 +19,15 @@
 		]
 	},
 	"scripts": {
+		"version": "pnpm build",
+		"release": "np",
 		"setup": "simple-git-hooks",
 		"postinstall": "pnpm run setup",
 		"start": "node --no-warnings --loader @leonzalion/tsconfig/loader.js ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
-		"build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
+		"build": "rimraf dist && tsc && tsc-alias -p tsconfig.json && cp package.json .pnpmfile.cjs dist/",
 		"prepublish": "pnpm build",
-		"lint": "eslint --fix",
+		"lint": "eslint --cache --fix src/**",
 		"prettier": "prettier --write src",
 		"tc": "tsc --noEmit"
 	},
@@ -45,9 +49,11 @@
 		"@types/jest": "^27.0.3",
 		"@types/node": "^16.11.17",
 		"eslint": "^8.5.0",
+		"eslint-define-config": "^1.2.0",
 		"execa": "^6.0.0",
 		"jest": "^27.4.5",
 		"lint-staged": "^12.1.3",
+		"np": "^7.6.0",
 		"prettier": "^2.5.1",
 		"rimraf": "^3.0.2",
 		"simple-git-hooks": "^2.7.0",
