@@ -22,7 +22,7 @@
 		"version": "pnpm build",
 		"release": "np",
 		"setup": "simple-git-hooks",
-		"postinstall": "pnpm run setup",
+		"prepare": "pnpm run setup",
 		"start": "node --no-warnings --loader @leonzalion/tsconfig/loader.js ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"build": "rimraf dist && tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json && cp package.json dist/",
