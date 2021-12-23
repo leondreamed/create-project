@@ -42,6 +42,9 @@ program
 			dot: true,
 		});
 
+		// Rename _gitignore to .gitignore
+		fs.renameSync(path.join(folder, '_gitignore'), path.join(folder, '.gitignore'));
+
 		await replace.replaceInFile({
 			files: path.join(folder, 'package.json'),
 			from: new RegExp(`${templateName}-template`, 'g'),

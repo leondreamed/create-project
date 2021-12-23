@@ -22,6 +22,13 @@ export function checkCommon(type: ProjectType) {
 		expect(fs.existsSync(path.join(projectFolder, '.git'))).toBe(false);
 	});
 
+
+	test("the .gitignore file should've been renamed", () => {
+		expect(fs.existsSync(path.join(projectFolder, '_gitignore'))).toBe(false);
+		expect(fs.existsSync(path.join(projectFolder, '.gitignore'))).toBe(true);
+	});
+
+
 	test('the project name of package.json should be equal to the command-line name', () => {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const packageJson = JSON.parse(
