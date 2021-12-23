@@ -14,5 +14,5 @@ execaCommandSync('pnpm i --lockfile-only', {
 
 execaCommandSync('tsc -p tsconfig.build.json');
 execaCommandSync('tsc-alias -p tsconfig.build.json');
-fs.cpSync('package.json', 'dist');
+fs.copyFileSync('package.json', 'dist');
 fs.cpSync('src/templates', 'dist');
