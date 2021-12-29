@@ -4,9 +4,9 @@ import { checkCommon } from '~test/utils/check.js';
 import { createProject, removeMyProject } from '~test/utils/project.js';
 
 describe('creates valid TypeScript project', () => {
-	beforeAll(() => {
+	beforeAll(async () => {
 		removeMyProject(ProjectType.typescript);
-		createProject(ProjectType.typescript);
+		await createProject(ProjectType.typescript);
 	});
 
 	afterAll(() => {

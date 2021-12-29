@@ -10,9 +10,9 @@ import {
 } from '~test/utils/project.js';
 
 describe('creates valid Electron project', () => {
-	beforeAll(() => {
+	beforeAll(async () => {
 		removeMyProject(ProjectType.electron);
-		createProject(ProjectType.electron);
+		await createProject(ProjectType.electron);
 	});
 
 	afterAll(() => {

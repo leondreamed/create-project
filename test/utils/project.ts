@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { execaCommandSync } from 'execa';
+import inquirer, { PromptModule } from 'inquirer';
 import { rootPath } from './path.js';
 import { ProjectType } from '~test/types/project.js';
 
@@ -15,25 +15,12 @@ export function removeMyProject(type: ProjectType) {
 	}
 }
 
-type PromptInputOptions = {
-	projectName: string;
-	projectType: string;
-	isLibrary: boolean;
-};
-function getPromptInput({
-	projectName,
-	projectType,
-	isLibrary,
-}: PromptInputOptions) {
-	return [projectName, projectType, isLibrary].join('\n');
-}
-
-export function createProject(type: ProjectType) {
-	execaCommandSync('pnpm start', {
-		input: getPromptInput({
-			projectName: getProjectName(type),
-			projectType: type,
-			isLibrary: false,
-		}),
-	});
+export async function createProject(type: ProjectType) {
+	inquirer.prompt = (async () => ({
+		projectType: type,
+		projectName: getProjectName(type),
+		isLibrary: false,
+	})) as unknown as PromptModule;
+	const { createProject } = await import('../../src/utils/project.js');
+	await createProject({ folder: getProjectFolder(type) });
 }
