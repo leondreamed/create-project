@@ -1,6 +1,7 @@
-import * as fs from 'node:fs';
-import * as path from 'node:path';
+import fs from 'node:fs';
+import path from 'node:path';
 
+import { execaCommandSync } from 'execa';
 import { rootPath } from './path.js';
 import { ProjectType } from '~test/types/project.js';
 
@@ -12,4 +13,27 @@ export function removeMyProject(type: ProjectType) {
 	if (fs.existsSync(projectFolder)) {
 		fs.rmSync(projectFolder, { recursive: true, force: true });
 	}
+}
+
+type PromptInputOptions = {
+	projectName: string;
+	projectType: string;
+	isLibrary: boolean;
+};
+function getPromptInput({
+	projectName,
+	projectType,
+	isLibrary,
+}: PromptInputOptions) {
+	return [projectName, projectType, isLibrary].join('\n');
+}
+
+export function createProject(type: ProjectType) {
+	execaCommandSync('pnpm start', {
+		input: getPromptInput({
+			projectName: getProjectName(type),
+			projectType: type,
+			isLibrary: false,
+		}),
+	});
 }
