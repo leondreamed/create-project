@@ -18,6 +18,7 @@ specifiers:
   inquirer: ^8.2.0
   jest: ^27.4.5
   lint-staged: ^12.1.3
+  map-obj: ^5.0.0
   merge-trees: ^2.0.0
   micromatch: ^4.0.4
   np: ^7.6.0
@@ -39,6 +40,7 @@ dependencies:
   commander: 8.3.0
   execa: 6.0.0
   inquirer: 8.2.0
+  map-obj: 5.0.0
   merge-trees: 2.0.0
   recursive-copy: 2.0.13
   replace-in-file: 6.3.2
@@ -5075,6 +5077,11 @@ packages:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
     dev: true
+
+  /map-obj/5.0.0:
+    resolution: {integrity: sha512-2L3MIgJynYrZ3TYMriLDLWocz15okFakV6J12HXvMXDHui2x/zgChzg1u9mFFGbbGWE+GsLpQByt4POb9Or+uA==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dev: false
 
   /maximatch/0.1.0:
     resolution: {integrity: sha1-hs2NawTJ8wfAWmuUGZBtA2D7E6I=}

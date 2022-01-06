@@ -1,14 +1,26 @@
-import path from 'node:path';
+import { ProjectTemplate } from '~/types/template.js';
 
-import { templatesPath } from './paths.js';
-import { TemplateOption } from '~/types/template.js';
-
-const templateOptionToName = {
-	[TemplateOption.electron]: 'electron-typescript-vite',
-	[TemplateOption.typescript]: 'typescript',
-	[TemplateOption.common]: 'common',
-};
-export const getTemplateName = (templateOption: TemplateOption) =>
-	templateOptionToName[templateOption];
-export const getTemplateFolder = (templateOption: TemplateOption) =>
-	path.join(templatesPath, templateOptionToName[templateOption]);
+const defineTemplateOptions = <T extends Record<string, ProjectTemplate>>(
+	t: T
+) => t;
+export const templateOptions = defineTemplateOptions({
+	typescript: {
+		name: 'TypeScript',
+		folder: 'typescript',
+		isDisplayed: true,
+	},
+	electron: {
+		name: 'Electron TypeScript Vite',
+		folder: 'electron-typescript-vite',
+		isDisplayed: true,
+	},
+	vite: {
+		name: 'Vite TypeScript',
+		folder: 'vite-typescript',
+		isDisplayed: true,
+	},
+	common: {
+		folder: 'common',
+		isDisplayed: false,
+	},
+});

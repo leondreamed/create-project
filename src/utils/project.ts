@@ -5,8 +5,7 @@ import recursiveCopy from 'recursive-copy';
 
 import inquirer from 'inquirer';
 import { paramCase } from 'change-case';
-import { TemplateOption } from '../types/template.js';
-import { getTemplateFolder, getTemplateName } from '../utils/template.js';
+import { templateOptions } from './template.js';
 
 type CreateProjectOptions = { folder: string };
 export async function createProject(options?: CreateProjectOptions) {
@@ -28,7 +27,7 @@ export async function createProject(options?: CreateProjectOptions) {
 			type: 'list',
 			name: 'projectType',
 			message: 'What type of project would you like to create?',
-			choices: ['typescript', 'electron'],
+			choices: Object.keys(templateOptions),
 		},
 		{
 			type: 'confirm',
@@ -38,10 +37,9 @@ export async function createProject(options?: CreateProjectOptions) {
 	]);
 
 	const folder = options?.folder ?? paramCase(projectName.toLowerCase());
-	const templateOption = projectType as TemplateOption;
-	const templateFolder = getTemplateFolder(templateOption);
-	const templateName = getTemplateName(templateOption);
-	const commonTemplateFolder = getTemplateFolder(TemplateOption.common);
+	const templateOption = projectType as keyof typeof templateOptions;
+	const templateFolder = templateOptions[templateOption].folder;
+	const commonTemplateFolder = templateOptions.common.folder;
 	fs.mkdirSync(folder, { recursive: true });
 
 	await recursiveCopy(templateFolder, folder, {
@@ -59,7 +57,7 @@ export async function createProject(options?: CreateProjectOptions) {
 
 	await replace.replaceInFile({
 		files: path.join(folder, 'package.json'),
-		from: new RegExp(`${templateName}-template`, 'g'),
+		from: new RegExp(`${templateOption}-template`, 'g'),
 		to: projectName,
 	});
 

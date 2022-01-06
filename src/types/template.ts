@@ -1,5 +1,5 @@
-export enum TemplateOption {
-	typescript = 'typescript',
-	electron = 'electron',
-	common = 'common',
-}
+export type ProjectTemplate = {
+	name?: string;
+	folder: string;
+	isDisplayed: boolean;
+};
