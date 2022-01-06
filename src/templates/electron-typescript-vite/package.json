@@ -16,6 +16,7 @@
 		"dev": "node --loader ts-node/esm scripts/watch.ts",
 		"build": "node --loader ts-node/esm scripts/build.ts",
 		"precompile": "cross-env MODE=production npm run build",
+		"prepare": "simple-git-hooks",
 		"compile": "electron-builder build --config electron-builder.config.js --dir --config.asar=false",
 		"pretest": "pnpm run build",
 		"lint": "eslint --fix . --ext js,ts,vue",

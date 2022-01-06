@@ -11,7 +11,7 @@
 		]
 	},
 	"scripts": {
-		"setup": "simple-git-hooks",
+		"prepare": "simple-git-hooks",
 		"start": "node --loader ts-node/esm ./src/index.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"prepublish": "pnpm test && pnpm build",
