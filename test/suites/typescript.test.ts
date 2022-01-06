@@ -1,5 +1,4 @@
-import { ProjectType } from '~test/types/project.js';
-
+import { ProjectType } from '~/types/project.js';
 import { checkCommon } from '~test/utils/check.js';
 import { createProject, removeMyProject } from '~test/utils/project.js';
 

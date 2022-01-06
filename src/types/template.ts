@@ -1,5 +1,5 @@
 export type ProjectTemplate = {
 	name?: string;
-	folder: string;
+	folderName: string;
 	isDisplayed: boolean;
 };

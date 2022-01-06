@@ -6,21 +6,22 @@ const defineTemplateOptions = <T extends Record<string, ProjectTemplate>>(
 export const templateOptions = defineTemplateOptions({
 	typescript: {
 		name: 'TypeScript',
-		folder: 'typescript',
+		folderName: 'typescript',
 		isDisplayed: true,
 	},
 	electron: {
 		name: 'Electron TypeScript Vite',
-		folder: 'electron-typescript-vite',
+		folderName: 'electron-typescript-vite',
 		isDisplayed: true,
 	},
 	vite: {
 		name: 'Vite TypeScript',
-		folder: 'vite-typescript',
+		folderName: 'vite-typescript',
 		isDisplayed: true,
 	},
 	common: {
-		folder: 'common',
+		folderName: 'common',
 		isDisplayed: false,
 	},
 });
+export type TemplateOptions = typeof templateOptions;
