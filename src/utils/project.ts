@@ -5,6 +5,7 @@ import recursiveCopy from 'recursive-copy';
 
 import inquirer from 'inquirer';
 import { paramCase } from 'change-case';
+import mapObject, { mapObjectSkip } from 'map-obj';
 import { templateOptions } from './template.js';
 import { getTemplateFolderPath } from './paths.js';
 
@@ -28,7 +29,11 @@ export async function createProject(options?: CreateProjectOptions) {
 			type: 'list',
 			name: 'projectType',
 			message: 'What type of project would you like to create?',
-			choices: Object.keys(templateOptions),
+			choices: Object.keys(
+				mapObject(templateOptions, (key, option) =>
+					option.isDisplayed ? [key, option] : mapObjectSkip
+				)
+			),
 		},
 		{
 			type: 'confirm',
