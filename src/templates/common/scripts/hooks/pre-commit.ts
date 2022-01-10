@@ -1,3 +1,3 @@
-import { execaCommandSync } from 'execa';
+import { execaCommandSync as exec } from 'execa';
 
-execaCommandSync('pnpm exec lint-staged', { stdio: 'inherit' });
+exec('pnpm exec lint-staged', { stdio: 'inherit' });

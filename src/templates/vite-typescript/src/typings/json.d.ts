@@ -2,7 +2,6 @@ declare class Stringified<T> extends String {
 	private readonly __stringified: T;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 interface JSON {
 	stringify<T = unknown>(
 		value: T,

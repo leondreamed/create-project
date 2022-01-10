@@ -6,10 +6,10 @@
 	},
 	"type": "module",
 	"main": "packages/main/dist/index.cjs",
-	"prettier": "@leonzalion/prettier-config",
+	"prettier": "@leonzalion/configs/prettier",
 	"commitlint": {
 		"extends": [
-			"@commitlint/config-conventional"
+			"@leonzalion/configs/commitlint"
 		]
 	},
 	"scripts": {
@@ -43,11 +43,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
-		"@commitlint/config-conventional": "^15.0.0",
-		"@leonzalion/eslint-config": "^1.0.17",
-		"@leonzalion/markdownlint-config": "^1.0.0",
-		"@leonzalion/prettier-config": "^1.0.2",
-		"@leonzalion/tsconfig": "^1.0.6",
+		"@leonzalion/configs": "latest",
 		"@types/electron-devtools-installer": "^2.2.0",
 		"@types/node": "^17.0.0",
 		"@vitejs/plugin-vue": "^2.0.1",

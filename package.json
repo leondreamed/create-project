@@ -12,10 +12,10 @@
 	"bin": {
 		"create-project": "create-project.js"
 	},
-	"prettier": "@leonzalion/prettier-config",
+	"prettier": "@leonzalion/configs/prettier",
 	"commitlint": {
 		"extends": [
-			"@commitlint/config-conventional"
+			"@leonzalion/configs/markdownlint"
 		]
 	},
 	"scripts": {
@@ -44,11 +44,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
-		"@commitlint/config-conventional": "^15.0.0",
-		"@leonzalion/eslint-config": "latest",
-		"@leonzalion/markdownlint-config": "latest",
-		"@leonzalion/prettier-config": "latest",
-		"@leonzalion/tsconfig": "latest",
+		"@leonzalion/configs": "latest",
 		"@types/inquirer": "^8.1.3",
 		"@types/jest": "^27.0.3",
 		"@types/node": "^16.11.17",

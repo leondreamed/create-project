@@ -4,10 +4,10 @@
 	"main": "dist/index.js",
 	"type": "module",
 	"license": "MIT",
-	"prettier": "@leonzalion/prettier-config",
+	"prettier": "@leonzalion/configs/prettier",
 	"commitlint": {
 		"extends": [
-			"@commitlint/config-conventional"
+			"@leonzalion/commitlint/config"
 		]
 	},
 	"scripts": {
@@ -21,11 +21,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
-		"@commitlint/config-conventional": "^15.0.0",
-		"@leonzalion/eslint-config": "latest",
-		"@leonzalion/markdownlint-config": "latest",
-		"@leonzalion/prettier-config": "latest",
-		"@leonzalion/tsconfig": "latest",
+		"@leonzalion/configs": "latest",
 		"@types/jest": "^27.0.3",
 		"@types/node": "^17.0.0",
 		"eslint": "^8.5.0",

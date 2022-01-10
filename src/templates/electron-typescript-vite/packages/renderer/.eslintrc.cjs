@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-const createAliases = require('@leonzalion/eslint-config/alias');
+const createAliases = require('@leonzalion/configs/eslint');
 
 module.exports = {
 	env: {

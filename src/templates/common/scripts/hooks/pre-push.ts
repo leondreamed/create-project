@@ -1,3 +1,3 @@
-import { execaCommandSync } from 'execa';
+import { execaCommandSync as exec } from 'execa';
 
-execaCommandSync('pnpm run tc', { stdio: 'inherit' });
+exec('pnpm run tc', { stdio: 'inherit' });

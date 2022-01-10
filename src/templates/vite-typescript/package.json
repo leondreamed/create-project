@@ -1,10 +1,10 @@
 {
 	"name": "vite-typescript-template",
 	"version": "0.0.0",
-	"prettier": "@leonzalion/prettier-config",
+	"prettier": "@leonzalion/configs/prettier",
 	"commitlint": {
 		"extends": [
-			"@commitlint/config-conventional"
+			"@leonzalion/configs/commitlint"
 		]
 	},
 	"type": "module",
@@ -26,11 +26,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
-		"@commitlint/config-conventional": "^15.0.0",
-		"@leonzalion/eslint-config": "^1.0.47",
-		"@leonzalion/markdownlint-config": "latest",
-		"@leonzalion/prettier-config": "latest",
-		"@leonzalion/tsconfig": "latest",
+		"@leonzalion/configs": "latest",
 		"@types/jest": "^27.0.3",
 		"@types/node": "^17.0.0",
 		"@vitejs/plugin-vue": "^2.0.0",
