@@ -7,7 +7,8 @@
 	"np": {
 		"contents": "./dist",
 		"tests": false,
-		"cleanup": false
+		"cleanup": false,
+		"publish": false
 	},
 	"bin": {
 		"create-project": "create-project.js"
@@ -19,14 +20,12 @@
 		]
 	},
 	"scripts": {
-		"version": "pnpm build",
-		"release": "np",
 		"setup": "simple-git-hooks",
 		"prepare": "pnpm run setup",
-		"start": "node --no-warnings --loader @leonzalion/tsconfig/loader.js ./src/create-project.ts",
+		"release": "pnpm tc && np && pnpm build && pnpm publish",
+		"start": "node --no-warnings --loader ts-node/esm ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"build": "node --loader ts-node/esm ./scripts/build.ts",
-		"prepublish": "pnpm build",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
 		"tc": "tsc --noEmit"
@@ -69,5 +68,8 @@
 		"pre-commit": "node --loader ts-node/esm ./scripts/hooks/pre-commit.ts",
 		"pre-push": "node --loader ts-node/esm ./scripts/hooks/pre-push.ts",
 		"commit-msg": "node --loader ts-node/esm ./scripts/hooks/commit-msg.ts $@"
+	},
+	"publishConfig": {
+		"directory": "dist"
 	}
 }
