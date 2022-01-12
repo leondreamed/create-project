@@ -1,3 +1,4 @@
+import process from 'node:process';
 import { execaCommandSync as exec } from 'execa';
 
 try {

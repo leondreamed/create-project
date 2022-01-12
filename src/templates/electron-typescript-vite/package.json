@@ -35,8 +35,8 @@
 		"Chrome 96"
 	],
 	"simple-git-hooks": {
-		"pre-commit": "npx lint-staged",
-		"pre-push": "pnpm run tc"
+		"pre-commit": "node --loader ts-node/esm ./scripts/hooks/pre-commit.ts",
+		"pre-push": "node --loader ts-node/esm ./scripts/hooks/pre-push.ts"
 	},
 	"lint-staged": {
 		"*.{js,ts,vue}": "eslint --cache --fix"

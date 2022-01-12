@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
-import { execSync } from 'child_process';
+import { execSync } from 'node:child_process';
 import electron from 'electron';
-import { readFile, writeFile } from 'fs/promises';
-import path from 'path';
+import { readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
 
 function getVendors(): NodeJS.ProcessVersions {
 	const output = execSync(`${electron} -p "JSON.stringify(process.versions)"`, {

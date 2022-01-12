@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import type { ChildProcessWithoutNullStreams } from 'child_process';
-import { spawn } from 'child_process';
+import type { ChildProcessWithoutNullStreams } from 'node:child_process';
+import { spawn } from 'node:child_process';
 import electron from 'electron';
 import type { OutputPlugin, RollupOutput, RollupWatcher } from 'rollup';
 import type { InlineConfig, LogLevel, ViteDevServer } from 'vite';

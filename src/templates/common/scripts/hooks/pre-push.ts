@@ -1,3 +1,8 @@
+import process from 'node:process';
 import { execaCommandSync as exec } from 'execa';
 
-exec('pnpm run tc', { stdio: 'inherit' });
+try {
+	exec('pnpm run tc', { stdio: 'inherit' });
+} catch {
+	process.exit(-1);
+}

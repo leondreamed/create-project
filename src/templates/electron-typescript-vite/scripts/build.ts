@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import path from 'path';
+import path from 'node:path';
 import { build } from 'vite';
 
 /** @type 'production' | 'development' */
