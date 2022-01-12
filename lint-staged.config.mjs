@@ -4,7 +4,7 @@ const config = {
 	'*.{js,ts,vue}': (files) => {
 		const match = micromatch.not(files, '**/src/templates/**');
 		if (match.length > 0) {
-			return [`eslint ${match.join(' ')}`, `prettier --write ${match.join(' ')}`];
+			return [`eslint --cache --fix ${match.join(' ')}`, `prettier --write ${match.join(' ')}`];
 		}
 
 		return [];
