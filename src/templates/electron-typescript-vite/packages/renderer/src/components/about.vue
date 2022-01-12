@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import { useElectron } from '~/use/electron';
+import { useElectron } from '~/use/electron.js';
 
 export default defineComponent({
 	name: 'App',

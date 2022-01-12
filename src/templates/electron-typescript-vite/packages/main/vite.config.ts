@@ -1,5 +1,5 @@
-import { builtinModules } from 'module';
-import path from 'path';
+import { builtinModules } from 'node:module';
+import path from 'node:path';
 import type { UserConfig } from 'vite';
 
 import { node } from '../../electron-vendors.config.json';

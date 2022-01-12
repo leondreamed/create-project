@@ -1,6 +1,6 @@
 import { app, BrowserWindow, shell } from 'electron';
-import path from 'path';
-import { URL } from 'url';
+import path from 'node:path';
+import { URL } from 'node:url';
 
 const isSingleInstance = app.requestSingleInstanceLock();
 const isDevelopment = import.meta.env.MODE === 'development';
