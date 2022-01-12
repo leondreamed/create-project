@@ -1,5 +1,5 @@
 const path = require('path');
-const createAliases = require('@leonzalion/configs/eslint/alias');
+const createAliases = require('@leonzalion/configs/eslint/alias.js');
 const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
