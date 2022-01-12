@@ -1,9 +1,9 @@
 {
 	"extends": "./tsconfig.json",
 	"include": [
-		"src/**/*.ts",
-		"scripts/**/*.ts",
-		"jest.config.js",
+		"src",
+		"scripts",
+		"jest.config.mjs",
 		".eslintrc.cjs",
 		".markdownlint.cjs",
 		"lint-staged.config.mjs",

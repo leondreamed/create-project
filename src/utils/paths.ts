@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { ProjectTemplate } from '~/types/template.js';
+import type { ProjectTemplate } from '~/types/template';
 
 export const srcPath = new URL('..', import.meta.url).pathname;
 export const templatesPath = path.join(srcPath, 'templates');

@@ -6,8 +6,8 @@ import recursiveCopy from 'recursive-copy';
 import inquirer from 'inquirer';
 import { paramCase } from 'change-case';
 import mapObject, { mapObjectSkip } from 'map-obj';
-import { templateOptions } from './template.js';
-import { getTemplateFolderPath } from './paths.js';
+import { templateOptions } from './template';
+import { getTemplateFolderPath } from './paths';
 
 type CreateProjectOptions = { folder: string };
 export async function createProject(options?: CreateProjectOptions) {

@@ -1,5 +1,5 @@
 import mapObject from 'map-obj';
-import { templateOptions } from '~/utils/template.js';
+import { templateOptions } from '~/utils/template';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const ProjectType = mapObject(templateOptions, (key) => [key, key]) as {

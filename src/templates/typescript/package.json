@@ -7,7 +7,7 @@
 	"prettier": "@leonzalion/configs/prettier",
 	"commitlint": {
 		"extends": [
-			"@leonzalion/commitlint/config"
+			"@leonzalion/configs/commitlint"
 		]
 	},
 	"scripts": {

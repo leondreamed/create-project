@@ -6,4 +6,10 @@ if (message === undefined) {
 	throw new Error('No message provided.');
 }
 
-execaSync('pnpm', ['exec', 'commitlint', '--edit', message]);
+try {
+	execaSync('pnpm', ['exec', 'commitlint', '--edit', message], {
+		stdio: 'inherit',
+	});
+} catch {
+	process.exit(1);
+}
