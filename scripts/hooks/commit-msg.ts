@@ -2,7 +2,6 @@ import process from 'node:process';
 import { execaSync } from 'execa';
 
 const message = process.argv.at(-1);
-console.log(process.argv);
 
 if (message === undefined) {
 	throw new Error('No message provided.');
