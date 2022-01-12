@@ -27,10 +27,9 @@ export function checkCommon(type: ProjectType) {
 	});
 
 	test('the project name of package.json should be equal to the command-line name', () => {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const packageJson = JSON.parse(
 			fs.readFileSync(path.join(projectFolder, 'package.json')).toString()
-		);
+		) as { name: string };
 		expect(packageJson.name).toEqual(projectName);
 	});
 }

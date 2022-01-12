@@ -3,6 +3,6 @@ const path = require('path');
 module.exports = {
 	extends: ['../.eslintrc.cjs'],
 	parserOptions: {
-		project: ['./tsconfig.eslint.json'],
+		project: [path.resolve(__dirname, './tsconfig.eslint.json')],
 	},
 };

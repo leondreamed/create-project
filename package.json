@@ -68,6 +68,6 @@
 	"simple-git-hooks": {
 		"pre-commit": "node --loader ts-node/esm ./scripts/hooks/pre-commit.ts",
 		"pre-push": "node --loader ts-node/esm ./scripts/hooks/pre-push.ts",
-		"commit-msg": "node --loader ts-node/esm ./scripts/hooks/commit-msg.ts"
+		"commit-msg": "node --loader ts-node/esm ./scripts/hooks/commit-msg.ts $@"
 	}
 }
