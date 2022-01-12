@@ -1,13 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ProjectType } from '~/types/project';
+import { ProjectType } from '~/types/project.js';
 
-import { checkCommon } from '~test/utils/check';
+import { checkCommon } from '~test/utils/check.js';
 import {
 	createProject,
 	getProjectDestFolder,
 	removeMyProject,
-} from '~test/utils/project';
+} from '~test/utils/project.js';
 
 describe('creates valid Vite project', () => {
 	beforeAll(async () => {

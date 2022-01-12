@@ -1,8 +1,8 @@
 /* eslint-env node */
 
 import vue from '@vitejs/plugin-vue';
-import { builtinModules } from 'module';
-import path from 'path';
+import { builtinModules } from 'node:module';
+import path from 'node:path';
 import type { UserConfig } from 'vite';
 
 import { chrome } from '../../electron-vendors.config.json';

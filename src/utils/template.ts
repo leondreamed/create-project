@@ -1,4 +1,4 @@
-import type { ProjectTemplate } from '~/types/template';
+import type { ProjectTemplate } from '~/types/template.js';
 
 const defineTemplateOptions = <T extends Record<string, ProjectTemplate>>(
 	t: T

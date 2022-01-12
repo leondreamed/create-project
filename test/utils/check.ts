@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { getProjectDestFolder, getProjectName } from './project';
-import type { ProjectType } from '~/types/project';
+import { getProjectDestFolder, getProjectName } from './project.js';
+import type { ProjectType } from '~/types/project.js';
 
 export function checkCommon(type: ProjectType) {
 	const projectFolder = getProjectDestFolder(type);
