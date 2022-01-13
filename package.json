@@ -4,11 +4,8 @@
 	"main": "create-project.js",
 	"license": "MIT",
 	"type": "module",
-	"np": {
-		"contents": "./dist",
-		"tests": false,
-		"cleanup": false,
-		"publish": false
+	"lionp": {
+		"tests": false
 	},
 	"bin": {
 		"create-project": "create-project.js"
@@ -22,7 +19,7 @@
 	"scripts": {
 		"setup": "simple-git-hooks",
 		"prepare": "pnpm run setup",
-		"release": "pnpm tc && np && pnpm build && pnpm publish",
+		"release": "lionp",
 		"start": "node --no-warnings --loader ts-node/esm ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"build": "node --loader ts-node/esm ./scripts/build.ts",
@@ -52,8 +49,8 @@
 		"execa": "^6.0.0",
 		"jest": "^27.4.5",
 		"lint-staged": "^12.1.3",
+		"lionp": "^1.0.8",
 		"micromatch": "^4.0.4",
-		"np": "^7.6.0",
 		"prettier": "^2.5.1",
 		"rimraf": "^3.0.2",
 		"simple-git-hooks": "^2.7.0",
@@ -61,8 +58,7 @@
 		"ts-jest-resolver": "^2.0.0",
 		"ts-node": "^10.4.0",
 		"tsc-alias": "^1.5.0",
-		"typescript": "^4.5.4",
-		"xo": "^0.47.0"
+		"typescript": "^4.5.4"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "node --loader ts-node/esm ./scripts/hooks/pre-commit.ts",
