@@ -10,12 +10,4 @@ module.exports = defineConfig({
 	},
 	ignorePatterns: ['src/templates/**'],
 	settings: createAliases({ '~': './src', '~test': './test' }),
-	overrides: [
-		{
-			files: ['scripts/**/*.ts'],
-			rules: {
-				'unicorn/no-process-exit': 'off',
-			},
-		},
-	],
 });

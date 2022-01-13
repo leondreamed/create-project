@@ -15,7 +15,7 @@
 		"start": "node --loader ts-node/esm ./src/index.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"prepublish": "pnpm test && pnpm build",
-		"lint": "eslint --cache --fix src",
+		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
 		"tc": "tsc --noEmit"
 	},

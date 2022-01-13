@@ -1,0 +1,13 @@
+{
+	"extends": "./tsconfig.json",
+	"include": [
+		"packages",
+		"scripts",
+		"test",
+		".eslintrc.cjs",
+		".markdownlint.js",
+		"electron-builder.config.js",
+		"jest.config.mjs",
+		"vetur.config.js"
+	]
+}
