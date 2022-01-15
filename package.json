@@ -20,9 +20,9 @@
 		"setup": "simple-git-hooks",
 		"prepare": "pnpm run setup",
 		"release": "lionp",
-		"start": "node-ts ./src/create-project.ts",
+		"start": "tsm ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
-		"build": "node-ts ./scripts/build.ts",
+		"build": "tsm ./scripts/build.ts",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
 		"tc": "tsc --noEmit"
