@@ -4,9 +4,6 @@
 	"main": "create-project.js",
 	"license": "MIT",
 	"type": "module",
-	"lionp": {
-		"tests": false
-	},
 	"bin": {
 		"create-project": "create-project.js"
 	},
@@ -20,9 +17,9 @@
 		"setup": "simple-git-hooks",
 		"prepare": "pnpm run setup",
 		"release": "lionp",
-		"start": "tsm ./src/create-project.ts",
+		"start": "node-ts ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
-		"build": "tsm ./scripts/build.ts",
+		"build": "node-ts ./scripts/build.ts",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
 		"tc": "tsc --noEmit"
