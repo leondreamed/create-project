@@ -37,7 +37,7 @@
 	"simple-git-hooks": {
 		"pre-commit": "pnpm exec node-ts ./scripts/hooks/pre-commit.ts",
 		"pre-push": "pnpm exec node-ts ./scripts/hooks/pre-push.ts",
-		"commit-msg": "pnpm exec node-ts ./scripts/hooks/pre-push.ts"
+		"commit-msg": "pnpm exec node-ts ./scripts/hooks/pre-push.ts $@"
 	},
 	"lint-staged": {
 		"*.{js,ts,vue}": "eslint --cache --fix ."
