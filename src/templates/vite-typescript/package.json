@@ -13,7 +13,6 @@
 		"build": "vue-tsc --noEmit && vite build",
 		"preview": "vite preview",
 		"prepare": "simple-git-hooks",
-		"start": "node --loader ts-node/esm ./src/index.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
@@ -47,8 +46,9 @@
 		"vue-tsc": "^0.30.2"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "node --loader ts-node/esm ./scripts/hooks/pre-commit.ts",
-		"pre-push": "node --loader ts-node/esm ./scripts/hooks/pre-push.ts"
+		"pre-commit": "pnpm exec node-ts ./scripts/hooks/pre-commit.ts",
+		"pre-push": "pnpm exec node-ts ./scripts/hooks/pre-push.ts",
+		"commit-msg": "pnpm exec node-ts ./scripts/hooks/commit-msg.ts"
 	},
 	"lint-staged": {
 		"*.{js,ts,vue}": [
