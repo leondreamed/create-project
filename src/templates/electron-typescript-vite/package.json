@@ -28,7 +28,7 @@
 		"tc-preload": "tsc --noEmit -p packages/preload/tsconfig.json",
 		"tc-renderer": "vue-tsc --noEmit -p packages/renderer/tsconfig.json",
 		"tc": "pnpm run tc-main && pnpm run tc-preload && pnpm run tc-renderer",
-		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
+		"test": "jest",
 		"ptc-renderer": "dts-cb -i packages/preload/src/**/*.ts -o packages/preload/exposedInMainWorld.d.ts"
 	},
 	"browserslist": [

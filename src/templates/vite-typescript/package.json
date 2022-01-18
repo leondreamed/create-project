@@ -13,7 +13,7 @@
 		"build": "vue-tsc --noEmit && vite build",
 		"preview": "vite preview",
 		"prepare": "simple-git-hooks",
-		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
+		"test": "jest",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
 		"tc": "vue-tsc --noEmit"

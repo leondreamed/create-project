@@ -13,7 +13,7 @@
 	"scripts": {
 		"prepare": "simple-git-hooks",
 		"start": "node-ts ./src/index.ts",
-		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
+		"test": "jest",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
 		"tc": "tsc --noEmit"
