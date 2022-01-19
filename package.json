@@ -14,8 +14,7 @@
 		]
 	},
 	"scripts": {
-		"setup": "simple-git-hooks",
-		"prepare": "pnpm run setup",
+		"prepare": "simple-git-hooks",
 		"release": "lionp",
 		"start": "node-ts ./src/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
@@ -32,8 +31,7 @@
 		"map-obj": "^5.0.0",
 		"merge-trees": "^2.0.0",
 		"recursive-copy": "^2.0.13",
-		"replace-in-file": "^6.3.2",
-		"tsconfig-paths": "^3.12.0"
+		"replace-in-file": "^6.3.2"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
