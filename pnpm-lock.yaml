@@ -14,6 +14,7 @@ specifiers:
   inquirer: ^8.2.0
   jest: ^27.4.5
   lint-staged: ^12.1.3
+  lion-system: ^1.0.3
   lionp: ^1.0.14
   map-obj: ^5.0.0
   merge-trees: ^2.0.0
@@ -51,6 +52,7 @@ devDependencies:
   eslint-define-config: 1.2.0
   jest: 27.4.5
   lint-staged: 12.1.3
+  lion-system: 1.0.3
   lionp: 1.0.14
   micromatch: 4.0.4
   prettier: 2.5.1
@@ -957,7 +959,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       callsites: 3.1.0
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       source-map: 0.6.1
     dev: true
 
@@ -976,7 +978,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/test-result': 27.4.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 27.4.5
       jest-runtime: 27.4.5
     transitivePeerDependencies:
@@ -1787,7 +1789,7 @@ packages:
       babel-plugin-istanbul: 6.1.1
       babel-preset-jest: 27.4.0_@babel+core@7.16.5
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       slash: 3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -5042,7 +5044,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@types/node': 16.11.17
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
     dev: true
 
   /jest-snapshot/27.4.5:
@@ -5255,7 +5257,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
     dev: true
 
   /jsonparse/1.3.1:
@@ -5354,6 +5356,10 @@ packages:
       yaml: 1.10.2
     transitivePeerDependencies:
       - enquirer
+    dev: true
+
+  /lion-system/1.0.3:
+    resolution: {integrity: sha512-/AKhJcAUYICvbQ15DCSwBPtdwyMogXKKpHtKHRtWmCiTC2D1NT+gTQe1g0NFu5uVVb0bqYiq6pgWk2iTw4XHsg==}
     dev: true
 
   /lionp/1.0.14:
