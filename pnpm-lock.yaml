@@ -17,7 +17,6 @@ specifiers:
   lion-system: ^1.0.3
   lionp: ^1.0.14
   map-obj: ^5.0.0
-  merge-trees: ^2.0.0
   micromatch: ^4.0.4
   prettier: ^2.5.1
   recursive-copy: ^2.0.13
@@ -36,7 +35,6 @@ dependencies:
   execa: 6.0.0
   inquirer: 8.2.0
   map-obj: 5.0.0
-  merge-trees: 2.0.0
   recursive-copy: 2.0.13
   replace-in-file: 6.3.2
 
@@ -2023,13 +2021,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /can-symlink/1.0.0:
-    resolution: {integrity: sha1-l7YH2KhLtsbiKLkC2GTstZS50hk=}
-    hasBin: true
-    dependencies:
-      tmp: 0.0.28
-    dev: false
-
   /caniuse-lite/1.0.30001292:
     resolution: {integrity: sha512-jnT4Tq0Q4ma+6nncYQVe7d73kmDmE9C3OGTx3MvW7lBM/eY1S1DZTMBON7dqV481RhNiS5OxD7k9JQvmDOTirw==}
     dev: true
@@ -2127,10 +2118,6 @@ packages:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
     engines: {node: '>=6'}
     dev: true
-
-  /clean-up-path/1.0.0:
-    resolution: {integrity: sha512-PHGlEF0Z6976qQyN6gM7kKH6EH0RdfZcc8V+QhFe36eRxV0SMH5OUBZG7Bxa9YcreNzyNbK63cGiZxdSZgosRw==}
-    dev: false
 
   /cli-boxes/2.2.1:
     resolution: {integrity: sha512-y4coMcylgSCdVinjiDBuR8PCC2bLjyGTwEmPb9NHR/QaNU6EUOXcTY/s6VjGMD6ENSEaeQYHCY0GNGS5jfMwPw==}
@@ -2366,6 +2353,7 @@ packages:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     dependencies:
       ms: 2.0.0
+    dev: true
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -3762,17 +3750,6 @@ packages:
       universalify: 2.0.0
     dev: true
 
-  /fs-updater/1.0.4:
-    resolution: {integrity: sha512-0pJX4mJF/qLsNEwTct8CdnnRdagfb+LmjRPJ8sO+nCnAZLW0cTmz4rTgU25n+RvTuWSITiLKrGVJceJPBIPlKg==}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      can-symlink: 1.0.0
-      clean-up-path: 1.0.0
-      heimdalljs: 0.2.6
-      heimdalljs-logger: 0.1.10
-      rimraf: 2.7.1
-    dev: false
-
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
 
@@ -4076,19 +4053,6 @@ packages:
     dependencies:
       capital-case: 1.0.4
       tslib: 2.3.1
-    dev: false
-
-  /heimdalljs-logger/0.1.10:
-    resolution: {integrity: sha512-pO++cJbhIufVI/fmB/u2Yty3KJD0TqNPecehFae0/eps0hkZ3b4Zc/PezUMOpYuHFQbA7FxHZxa305EhmjLj4g==}
-    dependencies:
-      debug: 2.6.9
-      heimdalljs: 0.2.6
-    dev: false
-
-  /heimdalljs/0.2.6:
-    resolution: {integrity: sha512-o9bd30+5vLBvBtzCPwwGqpry2+n0Hi6H1+qwt6y+0kwRHGGF8TFIhJPmnuM0xO97zaKrDZMwO/V56fAnn8m/tA==}
-    dependencies:
-      rsvp: 3.2.1
     dev: false
 
   /homedir-polyfill/1.0.3:
@@ -5616,13 +5580,6 @@ packages:
   /merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
 
-  /merge-trees/2.0.0:
-    resolution: {integrity: sha512-5xBbmqYBalWqmhYm51XlohhkmVOua3VAUrrWh8t9iOkaLpS6ifqm/UVuUjQCeDVJ9Vx3g2l6ihfkbLSTeKsHbw==}
-    dependencies:
-      fs-updater: 1.0.4
-      heimdalljs: 0.2.6
-    dev: false
-
   /merge/2.1.1:
     resolution: {integrity: sha512-jz+Cfrg9GWOZbQAnDQ4hlVnQky+341Yk5ru8bZSe6sIDTCIg8n9i/u7hSQGSVOF3C7lH6mGtqjkiT9G4wFLL0w==}
     dev: true
@@ -5705,6 +5662,7 @@ packages:
 
   /ms/2.0.0:
     resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
+    dev: true
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
@@ -6598,10 +6556,6 @@ packages:
       glob: 7.2.0
     dev: true
 
-  /rsvp/3.2.1:
-    resolution: {integrity: sha1-B8tKXfJa3Z6Cbrxn3Mn9idsn2Eo=}
-    dev: false
-
   /run-async/2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==}
     engines: {node: '>=0.12.0'}
@@ -7032,13 +6986,6 @@ packages:
     dependencies:
       readable-stream: 3.6.0
     dev: true
-
-  /tmp/0.0.28:
-    resolution: {integrity: sha1-Fyc1t/YU6nrzlmT6hM8N5OUV0SA=}
-    engines: {node: '>=0.4.0'}
-    dependencies:
-      os-tmpdir: 1.0.2
-    dev: false
 
   /tmp/0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
