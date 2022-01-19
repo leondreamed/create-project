@@ -29,7 +29,6 @@
 		"execa": "^6.0.0",
 		"inquirer": "^8.2.0",
 		"map-obj": "^5.0.0",
-		"merge-trees": "^2.0.0",
 		"recursive-copy": "^2.0.13",
 		"replace-in-file": "^6.3.2"
 	},
