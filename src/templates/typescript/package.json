@@ -42,7 +42,7 @@
 		"commit-msg": "pnpm exec node-ts ./scripts/hooks/commit-msg.ts $@"
 	},
 	"lint-staged": {
-		"*.{js,ts,vue}": [
+		"*.{js,ts}": [
 			"pnpm run lint",
 			"pnpm run prettier"
 		]

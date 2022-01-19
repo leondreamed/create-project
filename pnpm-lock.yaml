@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@commitlint/cli': ^15.0.0
-  '@leonzalion/configs': ^1.0.31
+  '@leonzalion/configs': latest
   '@types/inquirer': ^8.1.3
   '@types/jest': ^27.0.3
   '@types/node': ^16.11.17
@@ -44,7 +44,7 @@ dependencies:
 
 devDependencies:
   '@commitlint/cli': 15.0.0
-  '@leonzalion/configs': 1.0.31_1ad73cdbddeb4292902029b0485ad7fe
+  '@leonzalion/configs': 1.0.32_1ad73cdbddeb4292902029b0485ad7fe
   '@types/inquirer': 8.1.3
   '@types/jest': 27.0.3
   '@types/node': 16.11.17
@@ -1019,8 +1019,8 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@leonzalion/configs/1.0.31_1ad73cdbddeb4292902029b0485ad7fe:
-    resolution: {integrity: sha512-7iQjjrdd/H2FxQgHY11ypJB8Vb8mE9eNm9/VNnfJBYzbFEHYIoDi/OfuXLto0v252mo1ebpakD2zpc7McgyqQg==}
+  /@leonzalion/configs/1.0.32_1ad73cdbddeb4292902029b0485ad7fe:
+    resolution: {integrity: sha512-NxseaJ4SeCKCc04cTRbBeIDNlV0QkohCnWnc6jbaKb0fgzriFlWAOWhktXxhuvOWwjp3RxldFp20e9tLVZEwAA==}
     hasBin: true
     peerDependencies:
       eslint: ^8.4.0
