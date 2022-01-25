@@ -66,6 +66,12 @@ export async function createProject(options?: CreateProjectOptions) {
 		path.join(destinationFolder, '.gitignore')
 	);
 
+	// Rename _gitattributes to .gitattributes
+	fs.renameSync(
+		path.join(destinationFolder, '_gitattributes'),
+		path.join(destinationFolder, '.gitattributes')
+	);
+
 	await replace.replaceInFile({
 		files: path.join(destinationFolder, 'package.json'),
 		from: new RegExp(
