@@ -6,7 +6,7 @@ const __dirname = new URL('.', import.meta.url).pathname;
  * @type import('ts-jest/dist/types').InitialOptionsTsJest
  */
 const config = {
-	modulePathIgnorePatterns: ['<rootDir>/dist'],
+	modulePathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/src/templates'],
 	setupFiles: ['./test/jest.setup.ts'],
 	extensionsToTreatAsEsm: ['.ts'],
 	globals: {

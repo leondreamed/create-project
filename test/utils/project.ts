@@ -19,6 +19,8 @@ export function removeMyProject(type: ProjectType) {
 export async function createProject(type: ProjectType) {
 	inquirer.prompt = (async () => ({
 		projectType: type,
+		projectRepository: '',
+		projectDescription: 'my project',
 		projectName: getProjectName(type),
 		isLibrary: false,
 	})) as unknown as PromptModule;

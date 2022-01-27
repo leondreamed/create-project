@@ -6,6 +6,7 @@ import recursiveCopy from 'recursive-copy';
 import inquirer from 'inquirer';
 import { paramCase } from 'change-case';
 import mapObject, { mapObjectSkip } from 'map-obj';
+import type { PackageJson } from 'type-fest';
 import { templateOptions } from './template.js';
 import { getTemplateFolderPath } from './paths.js';
 
@@ -14,16 +15,31 @@ export async function createProject(options?: CreateProjectOptions) {
 	const {
 		projectType,
 		projectName,
+		projectDescription,
+		projectRepository,
 		isLibrary: _,
 	} = await inquirer.prompt<{
 		projectType: string;
 		projectName: string;
+		projectDescription: string;
+		projectRepository: string;
 		isLibrary: boolean;
 	}>([
 		{
 			type: 'input',
 			name: 'projectName',
 			message: 'What is the name of your project?',
+		},
+		{
+			type: 'input',
+			name: 'projectDescription',
+			message: 'What is the description of your project?',
+		},
+		{
+			type: 'input',
+			name: 'projectRepository',
+			message:
+				'What is the repository for this project (e.g. leonzalion/my-repo-name)? (leave blank if none)',
 		},
 		{
 			type: 'list',
@@ -72,14 +88,26 @@ export async function createProject(options?: CreateProjectOptions) {
 		path.join(destinationFolder, '.gitattributes')
 	);
 
-	await replace.replaceInFile({
-		files: path.join(destinationFolder, 'package.json'),
-		from: new RegExp(
-			`${templateOptions[templateOption].folderName}-template`,
-			'g'
-		),
-		to: projectName,
+	const packageJsonPath = path.join(destinationFolder, 'package.json');
+	replace.sync({
+		files: packageJsonPath,
+		from: ['{{name}}', '{{description}}'],
+		to: [projectName, projectDescription],
 	});
+
+	if (projectRepository.trim() === '') {
+		const packageJson = JSON.parse(
+			fs.readFileSync(packageJsonPath).toString()
+		) as PackageJson;
+		packageJson.repository = undefined;
+		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson));
+	} else {
+		replace.sync({
+			files: packageJsonPath,
+			from: ['{{repository}}'],
+			to: [projectRepository],
+		});
+	}
 
 	fs.writeFileSync(path.join(destinationFolder, 'readme.md'), projectName);
 }

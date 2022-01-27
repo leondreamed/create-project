@@ -32,4 +32,11 @@ export function checkCommon(type: ProjectType) {
 		) as { name: string };
 		expect(packageJson.name).toEqual(projectName);
 	});
+
+	test('interpolations should not exist in the package.json', () => {
+		const packageJson = fs
+			.readFileSync(path.join(projectFolder, 'package.json'))
+			.toString();
+		expect(/{{.*}}/.test(packageJson)).toBe(false);
+	});
 }

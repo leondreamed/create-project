@@ -1,16 +1,18 @@
 {
-	"name": "electron-typescript-vite-template",
-	"private": true,
-	"engines": {
-		"node": ">=v14"
+	"name": "{{name}}",
+	"version": "1.0.0",
+	"description": "{{description}}",
+	"repository": "{{repository}}",
+	"author": {
+		"name": "Leon Si",
+		"email": "contact@leonzalion.com",
+		"url": "https://leonzalion.com"
 	},
 	"type": "module",
 	"main": "packages/main/dist/index.cjs",
-	"prettier": "@leonzalion/configs/prettier",
-	"commitlint": {
-		"extends": [
-			"@leonzalion/configs/commitlint"
-		]
+	"private": true,
+	"engines": {
+		"node": ">=v14"
 	},
 	"scripts": {
 		"dev": "node --loader ts-node/esm scripts/watch.ts",
@@ -31,16 +33,11 @@
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"ptc-renderer": "dts-cb -i packages/preload/src/**/*.ts -o packages/preload/exposedInMainWorld.d.ts"
 	},
-	"browserslist": [
-		"Chrome 96"
-	],
-	"simple-git-hooks": {
-		"pre-commit": "pnpm exec node-ts ./scripts/hooks/pre-commit.ts",
-		"pre-push": "pnpm exec node-ts ./scripts/hooks/pre-push.ts",
-		"commit-msg": "pnpm exec node-ts ./scripts/hooks/pre-push.ts $@"
-	},
-	"lint-staged": {
-		"*.{js,ts,vue}": "eslint --cache --fix ."
+	"dependencies": {
+		"electron-updater": "^4.6.1",
+		"puppeteer": "^13.0.0",
+		"vue": "^3.2.26",
+		"vue-router": "^4.0.12"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
@@ -69,10 +66,21 @@
 		"vite": "^2.7.3",
 		"vue-tsc": "^0.29.8"
 	},
-	"dependencies": {
-		"electron-updater": "^4.6.1",
-		"puppeteer": "^13.0.0",
-		"vue": "^3.2.26",
-		"vue-router": "^4.0.12"
+	"browserslist": [
+		"Chrome 96"
+	],
+	"prettier": "@leonzalion/configs/prettier",
+	"commitlint": {
+		"extends": [
+			"@leonzalion/configs/commitlint"
+		]
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm exec node-ts ./scripts/hooks/pre-commit.ts",
+		"pre-push": "pnpm exec node-ts ./scripts/hooks/pre-push.ts",
+		"commit-msg": "pnpm exec node-ts ./scripts/hooks/pre-push.ts $@"
+	},
+	"lint-staged": {
+		"*.{js,ts,vue}": "eslint --cache --fix ."
 	}
 }
