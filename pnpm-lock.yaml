@@ -14,7 +14,7 @@ specifiers:
   inquirer: ^8.2.0
   jest: ^27.4.5
   lint-staged: ^12.1.3
-  lion-system: ^1.0.3
+  lion-system: ^1.0.9
   lionp: ^1.0.14
   map-obj: ^5.0.0
   micromatch: ^4.0.4
@@ -49,7 +49,7 @@ devDependencies:
   eslint-define-config: 1.2.0
   jest: 27.4.5
   lint-staged: 12.1.3
-  lion-system: 1.0.3
+  lion-system: 1.0.9
   lionp: 1.0.14
   micromatch: 4.0.4
   prettier: 2.5.1
@@ -5467,8 +5467,10 @@ packages:
       - enquirer
     dev: true
 
-  /lion-system/1.0.3:
-    resolution: {integrity: sha512-/AKhJcAUYICvbQ15DCSwBPtdwyMogXKKpHtKHRtWmCiTC2D1NT+gTQe1g0NFu5uVVb0bqYiq6pgWk2iTw4XHsg==}
+  /lion-system/1.0.9:
+    resolution: {integrity: sha512-kOomq2SrAljYpUkzzXHAors4Bibe9+sP51uGSyfi2ilYCx6e0scHiYg3t6oyhWhr4276QjIbjNGwkBEylAB1ww==}
+    dependencies:
+      pkg-up: 4.0.0
     dev: true
 
   /lionp/1.0.14:
@@ -6315,6 +6317,13 @@ packages:
 
   /pkg-dir/6.0.1:
     resolution: {integrity: sha512-C9R+PTCKGA32HG0n5I4JMYkdLL58ZpayVuncQHQrGeKa8o26A4o2x0u6BKekHG+Au0jv5ZW7Xfq1Cj6lm9Ag4w==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      find-up: 6.2.0
+    dev: true
+
+  /pkg-up/4.0.0:
+    resolution: {integrity: sha512-N4zdA4sfOe6yCv+ulPCmpnIBQ5I60xfhDr1otdBBhKte9QtEf3bhfrfkW7dTb+IQ0iEx4ZDzas0kc1o5rdWpYg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       find-up: 6.2.0
