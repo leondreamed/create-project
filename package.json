@@ -44,7 +44,7 @@
 		"jest": "^27.4.5",
 		"lint-staged": "^12.1.3",
 		"lion-system": "^1.0.9",
-		"lionp": "^1.0.14",
+		"lionp": "^1.0.15",
 		"micromatch": "^4.0.4",
 		"prettier": "^2.5.1",
 		"rimraf": "^3.0.2",
