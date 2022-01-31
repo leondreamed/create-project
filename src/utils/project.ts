@@ -100,7 +100,7 @@ export async function createProject(options?: CreateProjectOptions) {
 			fs.readFileSync(packageJsonPath).toString()
 		) as PackageJson;
 		packageJson.repository = undefined;
-		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson));
+		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, '\t'));
 	} else {
 		replace.sync({
 			files: packageJsonPath,
