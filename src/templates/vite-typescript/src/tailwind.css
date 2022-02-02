@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.row {
+	@apply flex flex-row;
+}
+
+.column {
+	@apply flex flex-col;
+}
+
+.center {
+	@apply items-center justify-center;
+}
+

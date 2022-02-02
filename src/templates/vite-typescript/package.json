@@ -13,7 +13,7 @@
 		"dev": "vite",
 		"build": "vue-tsc --noEmit && vite build",
 		"preview": "vite preview",
-		"prepare": "simple-git-hooks",
+		"prepare": "lion-git-hooks",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write src",
@@ -37,7 +37,7 @@
 		"postcss": "^8.4.5",
 		"prettier": "^2.5.1",
 		"rimraf": "^3.0.2",
-		"simple-git-hooks": "^2.7.0",
+		"lion-git-hooks": "^1.0.2",
 		"tailwindcss": "^3.0.11",
 		"ts-jest": "^27.1.2",
 		"ts-node": "^10.4.0",
@@ -51,11 +51,6 @@
 		"extends": [
 			"@leonzalion/configs/commitlint"
 		]
-	},
-	"simple-git-hooks": {
-		"pre-commit": "pnpm exec node-ts ./scripts/hooks/pre-commit.ts",
-		"pre-push": "pnpm exec node-ts ./scripts/hooks/pre-push.ts",
-		"commit-msg": "pnpm exec node-ts ./scripts/hooks/commit-msg.ts $@"
 	},
 	"lint-staged": {
 		"*.{js,ts,vue}": [

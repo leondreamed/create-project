@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@commitlint/cli': ^15.0.0
-  '@leonzalion/configs': ^1.0.54
+  '@leonzalion/configs': ^1.0.62
   '@types/inquirer': ^8.1.3
   '@types/jest': ^27.0.3
   '@types/node': ^16.11.17
@@ -41,7 +41,7 @@ dependencies:
 
 devDependencies:
   '@commitlint/cli': 15.0.0
-  '@leonzalion/configs': 1.0.55_88dd207954ea1d82ec16e84f239250ff
+  '@leonzalion/configs': 1.0.62_88dd207954ea1d82ec16e84f239250ff
   '@types/inquirer': 8.2.0
   '@types/jest': 27.4.0
   '@types/node': 16.11.21
@@ -808,8 +808,8 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@leonzalion/configs/1.0.55_88dd207954ea1d82ec16e84f239250ff:
-    resolution: {integrity: sha512-/KQjXloUvXqacwQFSBqMncVNzygpPuUaOCNhLuMzyj0fep7gGjVeu1fnaKgooYOZp+GiEmIwXhGHVlpHzImbQw==}
+  /@leonzalion/configs/1.0.62_88dd207954ea1d82ec16e84f239250ff:
+    resolution: {integrity: sha512-ofgsACf2VBLwhgG0QdJBGunGco/s/FjH6iwSxu5fBhcswh2JgZuqYreHz7llrmbtI5so75mUklGOevjBS7bCCg==}
     hasBin: true
     peerDependencies:
       eslint: ^8.4.0
@@ -835,8 +835,10 @@ packages:
       eslint-plugin-simple-import-sort: 7.0.0_eslint@8.8.0
       eslint-plugin-unicorn: 39.0.0_eslint@8.8.0
       eslint-plugin-vue: 8.4.0_eslint@8.8.0
+      is-ci: 3.0.1
       log-symbols: 4.1.0
       minimist: 1.2.5
+      pkg-up: 3.1.0
       ts-node: 10.4.0_8896075368a8919b28bb788b4c97c303
       tsconfig-paths: 3.12.0
       xo: 0.47.0
@@ -3293,6 +3295,13 @@ packages:
       locate-path: 2.0.0
     dev: true
 
+  /find-up/3.0.0:
+    resolution: {integrity: sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==}
+    engines: {node: '>=6'}
+    dependencies:
+      locate-path: 3.0.0
+    dev: true
+
   /find-up/4.1.0:
     resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}
     engines: {node: '>=8'}
@@ -3883,6 +3892,13 @@ packages:
     hasBin: true
     dependencies:
       ci-info: 2.0.0
+    dev: true
+
+  /is-ci/3.0.1:
+    resolution: {integrity: sha512-ZYvCgrefwqoQ6yTyYUbQu64HsITZ3NfKX1lzaEYdkTDcfKzzCI/wthRRYKkdjHKFVgNiXKAKm65Zo1pk2as/QQ==}
+    hasBin: true
+    dependencies:
+      ci-info: 3.3.0
     dev: true
 
   /is-core-module/2.8.1:
@@ -4981,6 +4997,14 @@ packages:
       path-exists: 3.0.0
     dev: true
 
+  /locate-path/3.0.0:
+    resolution: {integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==}
+    engines: {node: '>=6'}
+    dependencies:
+      p-locate: 3.0.0
+      path-exists: 3.0.0
+    dev: true
+
   /locate-path/5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
@@ -5531,6 +5555,13 @@ packages:
       p-limit: 1.3.0
     dev: true
 
+  /p-locate/3.0.0:
+    resolution: {integrity: sha512-x+12w/To+4GFfgJhBEpiDcLozRJGegY+Ei7/z0tSLkMmxGZNybVMSfWj9aJn8Z5Fc7dBUNJOOVgPv2H7IwulSQ==}
+    engines: {node: '>=6'}
+    dependencies:
+      p-limit: 2.3.0
+    dev: true
+
   /p-locate/4.1.0:
     resolution: {integrity: sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==}
     engines: {node: '>=8'}
@@ -5742,6 +5773,13 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       find-up: 6.2.0
+    dev: true
+
+  /pkg-up/3.1.0:
+    resolution: {integrity: sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==}
+    engines: {node: '>=8'}
+    dependencies:
+      find-up: 3.0.0
     dev: true
 
   /pkg-up/4.0.0:
@@ -7086,12 +7124,15 @@ packages:
     hasBin: true
     dependencies:
       '@eslint/eslintrc': 1.0.5
+      '@typescript-eslint/eslint-plugin': 5.10.2_2595c2126aec4d4b6e944b931dabb4c2
+      '@typescript-eslint/parser': 5.10.2_eslint@8.8.0+typescript@4.5.5
       arrify: 3.0.0
       cosmiconfig: 7.0.1
       define-lazy-prop: 3.0.0
       eslint: 8.8.0
       eslint-config-prettier: 8.3.0_eslint@8.8.0
       eslint-config-xo: 0.39.0_eslint@8.8.0
+      eslint-config-xo-typescript: 0.47.1_764c544be2c6b1e8290936651599fea4
       eslint-formatter-pretty: 4.1.0
       eslint-import-resolver-webpack: 0.13.2_eslint-plugin-import@2.25.4
       eslint-plugin-ava: 13.2.0_eslint@8.8.0
