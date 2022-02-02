@@ -4,5 +4,5 @@ import { execaCommandSync as exec } from 'execa';
 
 exec('tsc');
 for (const file of ['readme.md', 'package.json']) {
-	fs.copyFileSync(file, path.join('dist', file))
+	fs.copyFileSync(file, path.join('dist', file));
 }
