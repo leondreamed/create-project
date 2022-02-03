@@ -4,8 +4,9 @@
 		"src",
 		"scripts",
 		"test",
+		".markdownlint.cjs",
 		"postcss.config.cjs",
-		"tailwind.config.ts",
+		"tailwind.config.cjs",
 		"vite.config.ts",
 		"jest.config.js",
 		".eslintrc.cjs"

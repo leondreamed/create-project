@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import type { ChildProcessWithoutNullStreams } from 'node:child_process';
 import { spawn } from 'node:child_process';
 import electron from 'electron';
@@ -9,7 +7,6 @@ import { build, createLogger, createServer } from 'vite';
 
 const electronPath = electron;
 
-/** @type 'production' | 'development'' */
 process.env.MODE = process.env.MODE || 'development';
 const mode = process.env.MODE;
 
@@ -107,19 +104,17 @@ const setupPreloadPackageWatcher = (
 		},
 	});
 
-void (async () => {
-	try {
-		const viteDevServer = await createServer({
-			...sharedConfig,
-			configFile: 'packages/renderer/vite.config.ts',
-		});
+try {
+	const viteDevServer = await createServer({
+		...sharedConfig,
+		configFile: 'packages/renderer/vite.config.ts',
+	});
 
-		await viteDevServer.listen();
+	await viteDevServer.listen();
 
-		await setupPreloadPackageWatcher(viteDevServer);
-		await setupMainPackageWatcher(viteDevServer);
-	} catch (error) {
-		console.error(error);
-		process.exit(1);
-	}
-})();
+	await setupPreloadPackageWatcher(viteDevServer);
+	await setupMainPackageWatcher(viteDevServer);
+} catch (error) {
+	console.error(error);
+	process.exit(1);
+}

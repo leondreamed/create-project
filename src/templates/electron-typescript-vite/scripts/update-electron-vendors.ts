@@ -18,7 +18,7 @@ function formattedJSON(obj: Record<string, unknown>) {
 	return `${JSON.stringify(obj, null, 2)}\n`;
 }
 
-function updateVendors() {
+try {
 	const electronRelease = getVendors();
 
 	const nodeMajorVersion = electronRelease.node.split('.')[0];
@@ -27,7 +27,7 @@ function updateVendors() {
 
 	const packageJSONPath = path.resolve(process.cwd(), 'package.json');
 
-	return Promise.all([
+	await Promise.all([
 		writeFile(
 			'./electron-vendors.config.json',
 			formattedJSON({
@@ -48,9 +48,7 @@ function updateVendors() {
 				return writeFile(packageJSONPath, formattedJSON(packageJSON));
 			}),
 	]);
-}
-
-updateVendors().catch((error) => {
+} catch (error: unknown) {
 	console.error(error);
 	process.exit(1);
-});
+}
