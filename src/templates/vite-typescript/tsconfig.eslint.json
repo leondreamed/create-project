@@ -3,6 +3,7 @@
 	"include": [
 		"src",
 		"scripts",
+		"typings",
 		"test",
 		".markdownlint.cjs",
 		"postcss.config.cjs",

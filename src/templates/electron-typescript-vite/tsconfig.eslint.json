@@ -3,9 +3,9 @@
 	"include": [
 		"packages",
 		"scripts",
-		"test",
+		"typings",
 		".eslintrc.cjs",
-		".markdownlint.js",
+		".markdownlint.cjs",
 		"electron-builder.config.js",
 		"jest.config.mjs",
 		"vetur.config.js"
