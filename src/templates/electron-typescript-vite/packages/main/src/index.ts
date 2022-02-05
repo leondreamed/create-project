@@ -39,7 +39,7 @@ function main() {
 			show: false, // Use 'ready-to-show' event to show window
 			webPreferences: {
 				nativeWindowOpen: true,
-				preload: join(import.meta.env, '../../preload/dist/index.cjs'),
+				preload: join(import.meta.url, '../../preload/dist/index.cjs'),
 			},
 		});
 
@@ -68,7 +68,7 @@ function main() {
 				: new URL(
 						'../renderer/dist/index.html',
 
-						`file://${desm(import.meta)}`
+						`file://${desm(import.meta.url)}`
 				  ).toString();
 
 		await mainWindow.loadURL(pageUrl);
