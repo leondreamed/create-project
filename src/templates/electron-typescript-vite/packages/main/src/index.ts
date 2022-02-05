@@ -1,6 +1,4 @@
 import { app, BrowserWindow, shell } from 'electron';
-import { URL } from 'node:url';
-import process from 'node:process';
 import desm, { join } from 'desm';
 
 const isSingleInstance = app.requestSingleInstanceLock();
@@ -131,6 +129,7 @@ function main() {
 	});
 
 	app.on('window-all-closed', () => {
+		// eslint-disable-next-line node/prefer-global/process
 		if (process.platform !== 'darwin') {
 			app.quit();
 		}

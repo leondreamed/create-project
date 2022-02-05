@@ -28,6 +28,7 @@ const stderrFilterPatterns = [
 	// https://github.com/cawa-93/vite-electron-builder/issues/492
 	// https://github.com/MarshallOfSound/electron-devtools-installer/issues/143
 	/ExtensionLoadWarning/,
+	/chrome-devtools-frontend/,
 ];
 
 type GetWatcherProps = {
