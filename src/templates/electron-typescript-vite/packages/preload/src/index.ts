@@ -1,11 +1,11 @@
 import { contextBridge } from 'electron';
-import process from 'node:process';
 
 const apiKey = 'electron';
 /**
  * @see https://github.com/electron/electron/issues/21437#issuecomment-573522360
  */
 const api = {
+	// eslint-disable-next-line node/prefer-global/process
 	versions: process.versions,
 } as const;
 
