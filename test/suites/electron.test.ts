@@ -21,10 +21,10 @@ describe('creates valid Electron project', () => {
 
 	checkCommon(ProjectType.electron);
 
-	test('should contain electron-builder.config.js', () => {
+	test('should contain electron-builder.config.cjs', () => {
 		const projectFolder = getProjectDestFolder(ProjectType.electron);
 		expect(
-			fs.existsSync(path.join(projectFolder, 'electron-builder.config.js'))
+			fs.existsSync(path.join(projectFolder, 'electron-builder.config.cjs'))
 		).toBe(true);
 	});
 });
