@@ -3,9 +3,17 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["./src/*"]
+			"~/*": [
+				"./src/*"
+			]
 		},
-		"lib": ["ESNext", "dom", "dom.iterable"]
+		"lib": [
+			"ESNext",
+			"DOM",
+			"DOM.Iterable"
+		]
 	},
-	"include": ["./src"]
+	"include": [
+		"./src"
+	]
 }

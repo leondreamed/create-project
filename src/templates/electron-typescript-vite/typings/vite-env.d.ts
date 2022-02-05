@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention, @typescript-eslint/triple-slash-reference */
+
 /// <reference types="vite/client" />
 
 /**

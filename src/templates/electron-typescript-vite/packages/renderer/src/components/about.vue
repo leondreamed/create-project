@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useElectron } from '~/use/electron';
+
+const { versions } = useElectron();
+</script>
+
 <template>
 	<h2 id="versions">Lib versions</h2>
 	<div>
@@ -9,21 +15,6 @@
 		</ul>
 	</div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-import { useElectron } from '~/use/electron.js';
-
-export default defineComponent({
-	name: 'App',
-	setup() {
-		const { versions } = useElectron();
-		// It makes no sense to make "versions" reactive
-		return { versions };
-	},
-});
-</script>
 
 <style scoped>
 div {

@@ -1,6 +1,7 @@
 import { app, BrowserWindow, shell } from 'electron';
-import path from 'node:path';
 import { URL } from 'node:url';
+import process from 'node:process';
+import desm, { join } from 'desm';
 
 const isSingleInstance = app.requestSingleInstanceLock();
 const isDevelopment = import.meta.env.MODE === 'development';
@@ -17,15 +18,18 @@ function main() {
 	if (isDevelopment) {
 		app
 			.whenReady()
-			.then(() => import('electron-devtools-installer'))
-			.then(({ default: installExtension, VUEJS_DEVTOOLS }) =>
+			.then(async () => import('electron-devtools-installer'))
+			// eslint-disable-next-line @typescript-eslint/naming-convention
+			.then(async ({ default: installExtension, VUEJS_DEVTOOLS }) =>
 				installExtension(VUEJS_DEVTOOLS, {
 					loadExtensionOptions: {
 						allowFileAccess: true,
 					},
 				} as any)
 			)
-			.catch((error) => console.error('Failed install extension:', error));
+			.catch((error) => {
+				console.error('Failed install extension:', error);
+			});
 	}
 
 	let mainWindow: BrowserWindow | null = null;
@@ -35,7 +39,7 @@ function main() {
 			show: false, // Use 'ready-to-show' event to show window
 			webPreferences: {
 				nativeWindowOpen: true,
-				preload: path.join(__dirname, '../../preload/dist/index.cjs'),
+				preload: join(import.meta.env, '../../preload/dist/index.cjs'),
 			},
 		});
 
@@ -63,7 +67,8 @@ function main() {
 				? import.meta.env.VITE_DEV_SERVER_URL
 				: new URL(
 						'../renderer/dist/index.html',
-						`file://${__dirname}`
+
+						`file://${desm(import.meta)}`
 				  ).toString();
 
 		await mainWindow.loadURL(pageUrl);
@@ -82,7 +87,7 @@ function main() {
 			const allowedOrigins: ReadonlySet<string> =
 				new Set<`https://${string}`>(); // Do not use insecure protocols like HTTP. https://www.electronjs.org/docs/latest/tutorial/security#1-only-load-secure-content
 			const { origin, hostname } = new URL(url);
-			const isDevLocalhost = isDevelopment && hostname === 'localhost'; // permit live reload of index.html
+			const isDevLocalhost = isDevelopment && hostname === 'localhost'; // Permit live reload of index.html
 			if (!allowedOrigins.has(origin) && !isDevLocalhost) {
 				console.warn('Blocked navigating to an unallowed origin:', origin);
 				event.preventDefault();
@@ -112,6 +117,7 @@ function main() {
 			} else {
 				console.warn('Blocked the opening of an unallowed origin:', origin);
 			}
+
 			return { action: 'deny' };
 		});
 	});
@@ -133,15 +139,19 @@ function main() {
 	app
 		.whenReady()
 		.then(createWindow)
-		.catch((error) => console.error('Failed create window:', error));
+		.catch((error) => {
+			console.error('Failed create window:', error);
+		});
 
 	// Auto-updates
 	if (import.meta.env.PROD) {
 		app
 			.whenReady()
-			.then(() => import('electron-updater'))
-			.then(({ autoUpdater }) => autoUpdater.checkForUpdatesAndNotify())
-			.catch((error) => console.error('Failed check updates:', error));
+			.then(async () => import('electron-updater'))
+			.then(async ({ autoUpdater }) => autoUpdater.checkForUpdatesAndNotify())
+			.catch((error) => {
+				console.error('Failed check updates:', error);
+			});
 	}
 }
 

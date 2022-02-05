@@ -1,10 +1,17 @@
 import { builtinModules } from 'node:module';
 import path from 'node:path';
+import process from 'node:process';
+import fs from 'node:fs';
 import type { UserConfig } from 'vite';
+import desm, { join } from 'desm';
 
-import { node } from '../../electron-vendors.config.json';
+const { node } = JSON.parse(
+	fs
+		.readFileSync(join(import.meta.url, '../../electron-vendors.config.json'))
+		.toString()
+) as { chrome: string; node: string };
 
-const PACKAGE_ROOT = __dirname;
+const PACKAGE_ROOT = desm(import.meta.url);
 
 const config: UserConfig = {
 	mode: process.env.MODE,
@@ -36,5 +43,4 @@ const config: UserConfig = {
 	},
 };
 
-// eslint-disable-next-line import/no-default-export
 export default config;

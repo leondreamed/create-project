@@ -1,3 +1,5 @@
+const process = require('process');
+
 if (process.env.VITE_APP_VERSION === undefined) {
 	const now = new Date();
 	process.env.VITE_APP_VERSION = `${now.getUTCFullYear() - 2000}.${

@@ -1,4 +1,5 @@
 import { contextBridge } from 'electron';
+import process from 'node:process';
 
 const apiKey = 'electron';
 /**

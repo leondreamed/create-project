@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const count = ref(0);
+</script>
+
 <template>
 	<p>
 		For a guide and recipes on how to configure / customize this project,<br />
@@ -6,7 +12,8 @@
 			href="https://github.com/cawa-93/vite-electron-builder"
 			rel="noopener"
 			target="_blank"
-			>vite-electron-builder documentation</a
+		>
+			vite-electron-builder documentation </a
 		>.
 	</p>
 
@@ -25,19 +32,6 @@
 		<code>renderer/components/Home.vue</code> to test hot module replacement.
 	</p>
 </template>
-
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-
-export default defineComponent({
-	name: 'HelloWorld',
-	setup() {
-		const count = ref(0);
-
-		return { count };
-	},
-});
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

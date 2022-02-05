@@ -2,16 +2,22 @@
 
 import { execSync } from 'node:child_process';
 import electron from 'electron';
-import { readFile, writeFile } from 'node:fs/promises';
+import fs from 'node:fs/promises';
 import path from 'node:path';
+import process from 'node:process';
+import type { PackageJson } from 'type-fest';
 
 function getVendors(): NodeJS.ProcessVersions {
-	const output = execSync(`${electron} -p "JSON.stringify(process.versions)"`, {
-		env: { ELECTRON_RUN_AS_NODE: '1' },
-		encoding: 'utf-8',
-	});
+	const output = execSync(
+		`${electron as unknown as string} -p "JSON.stringify(process.versions)"`,
+		{
+			// eslint-disable-next-line @typescript-eslint/naming-convention
+			env: { ELECTRON_RUN_AS_NODE: '1' },
+			encoding: 'utf-8',
+		}
+	);
 
-	return JSON.parse(output);
+	return JSON.parse(output) as NodeJS.ProcessVersions;
 }
 
 function formattedJSON(obj: Record<string, unknown>) {
@@ -23,12 +29,12 @@ try {
 
 	const nodeMajorVersion = electronRelease.node.split('.')[0];
 	const chromeMajorVersion =
-		electronRelease.v8.split('.')[0] + electronRelease.v8.split('.')[1];
+		electronRelease.v8.split('.')[0]! + electronRelease.v8.split('.')[1]!;
 
 	const packageJSONPath = path.resolve(process.cwd(), 'package.json');
 
 	await Promise.all([
-		writeFile(
+		fs.writeFile(
 			'./electron-vendors.config.json',
 			formattedJSON({
 				chrome: chromeMajorVersion,
@@ -36,16 +42,20 @@ try {
 			})
 		),
 
-		readFile(packageJSONPath)
-			.then((packageJSONBuffer) => JSON.parse(packageJSONBuffer.toString()))
-			.then((packageJSON) => {
+		fs
+			.readFile(packageJSONPath)
+			.then(
+				(packageJSONBuffer) =>
+					JSON.parse(packageJSONBuffer.toString()) as PackageJson
+			)
+			.then(async (packageJSON) => {
 				if (!packageJSON || !Array.isArray(packageJSON.browserslist)) {
 					throw new Error(`Can't find browserslist in ${packageJSONPath}`);
 				}
 
 				packageJSON.browserslist = [`Chrome ${chromeMajorVersion}`];
 
-				return writeFile(packageJSONPath, formattedJSON(packageJSON));
+				return fs.writeFile(packageJSONPath, formattedJSON(packageJSON));
 			}),
 	]);
 } catch (error: unknown) {

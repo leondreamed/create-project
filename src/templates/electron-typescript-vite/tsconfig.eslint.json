@@ -6,8 +6,7 @@
 		"typings",
 		".eslintrc.cjs",
 		".markdownlint.cjs",
-		"electron-builder.config.js",
-		"jest.config.mjs",
-		"vetur.config.js"
+		"electron-builder.config.cjs",
+		"jest.config.mjs"
 	]
 }
