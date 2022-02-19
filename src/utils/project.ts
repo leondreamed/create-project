@@ -92,7 +92,10 @@ export async function createProject(options?: CreateProjectOptions) {
 	replace.sync({
 		files: packageJsonPath,
 		from: ['{{name}}', '{{description}}'],
-		to: [projectName, projectDescription],
+		to: [
+			projectName.replace(/"/g, '\\"'),
+			projectDescription.replace(/"/g, '\\"'),
+		],
 	});
 
 	if (projectRepository.trim() === '') {
@@ -105,7 +108,7 @@ export async function createProject(options?: CreateProjectOptions) {
 		replace.sync({
 			files: packageJsonPath,
 			from: ['{{repository}}'],
-			to: [projectRepository],
+			to: [projectRepository.replace(/"/g, '\\"')],
 		});
 	}
 
