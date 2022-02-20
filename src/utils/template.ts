@@ -9,11 +9,6 @@ export const templateOptions = defineTemplateOptions({
 		folderName: 'typescript',
 		isDisplayed: true,
 	},
-	electron: {
-		name: 'Electron TypeScript Vite',
-		folderName: 'electron-typescript-vite',
-		isDisplayed: true,
-	},
 	vite: {
 		name: 'Vite TypeScript',
 		folderName: 'vite-typescript',
