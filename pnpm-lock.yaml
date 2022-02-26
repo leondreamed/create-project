@@ -15,7 +15,7 @@ specifiers:
   jest: ^27.5.1
   lint-staged: ^12.3.4
   lion-system: ^1.0.9
-  lionp: ^1.0.18
+  lionp: ^1.0.19
   map-obj: ^5.0.0
   micromatch: ^4.0.4
   prettier: ^2.5.1
@@ -50,7 +50,7 @@ devDependencies:
   jest: 27.5.1
   lint-staged: 12.3.4
   lion-system: 1.0.9
-  lionp: 1.0.18
+  lionp: 1.0.19
   micromatch: 4.0.4
   prettier: 2.5.1
   rimraf: 3.0.2
@@ -4963,8 +4963,8 @@ packages:
       pkg-up: 4.0.0
     dev: true
 
-  /lionp/1.0.18:
-    resolution: {integrity: sha512-2o3m/n5bAUQTopyNOm/pVUdzrRmOEBeS2fg9C2f4BCzZ8QA731h9IzXGdvWXoJALqCU8NLBPJgNe2LjaTIUk6g==}
+  /lionp/1.0.19:
+    resolution: {integrity: sha512-RNomRUlpPdCVpJhxLMvTtDyqw5E3AzQl1Y58fLsxySq/Xoks4jDSnudn8iJAj3aQ8/893gLijMnkNzDyD6x4vQ==}
     engines: {git: '>=2.11.0', node: '>=10', npm: '>=6.8.0'}
     hasBin: true
     dependencies:
@@ -7275,12 +7275,15 @@ packages:
     hasBin: true
     dependencies:
       '@eslint/eslintrc': 1.2.0
+      '@typescript-eslint/eslint-plugin': 5.12.1_27a0c788acac7d65514027b167e3b3f6
+      '@typescript-eslint/parser': 5.12.1_eslint@8.10.0+typescript@4.5.5
       arrify: 3.0.0
       cosmiconfig: 7.0.1
       define-lazy-prop: 3.0.0
       eslint: 8.10.0
       eslint-config-prettier: 8.4.0_eslint@8.10.0
       eslint-config-xo: 0.39.0_eslint@8.10.0
+      eslint-config-xo-typescript: 0.47.1_570bf7ac8e47f19836c9e7a7bf125b35
       eslint-formatter-pretty: 4.1.0
       eslint-import-resolver-webpack: 0.13.2_0681d70744620d3a95d8cb23ff3c118d
       eslint-plugin-ava: 13.2.0_eslint@8.10.0
