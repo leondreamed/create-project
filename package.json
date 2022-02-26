@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"type": "module",
 	"bin": {
-		"create-project": "create-project.js"
+		"create-project": "./bin/create-project.js"
 	},
 	"prettier": "@leonzalion/configs/prettier",
 	"commitlint": {
@@ -16,7 +16,7 @@
 	"scripts": {
 		"prepare": "simple-git-hooks",
 		"release": "lionp",
-		"start": "node-ts ./src/create-project.ts",
+		"start": "node-ts ./bin/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"build": "node-ts ./scripts/build.ts",
 		"lint": "eslint --cache --fix .",
