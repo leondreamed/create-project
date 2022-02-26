@@ -108,7 +108,7 @@ export async function createProject(options?: CreateProjectOptions) {
 		replace.sync({
 			files: packageJsonPath,
 			from: ['{{repository}}'],
-			to: [projectRepository.replace(/"/g, '\\"')],
+			to: [`github:${projectRepository.replace(/"/g, '\\"')}`],
 		});
 	}
 
