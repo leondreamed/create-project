@@ -51,10 +51,10 @@
 		"vite": "^2.7.2",
 		"vue-tsc": "^0.30.2"
 	},
-	"prettier": "@leonzalion/configs/prettier",
+	"prettier": "@leonzalion/configs/prettier.cjs",
 	"commitlint": {
 		"extends": [
-			"@leonzalion/configs/commitlint"
+			"@leonzalion/configs/commitlint.cjs"
 		]
 	},
 	"lint-staged": {
