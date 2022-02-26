@@ -4,6 +4,11 @@
 	"main": "create-project.js",
 	"license": "MIT",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/leonzalion/create-project.git"
+	},
+	"homepage": "https://github.com/leonzalion/create-project#readme",
 	"bin": {
 		"create-project": "./bin/create-project.js"
 	},

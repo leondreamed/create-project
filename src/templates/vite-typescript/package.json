@@ -2,7 +2,11 @@
 	"name": "{{name}}",
 	"version": "0.0.0",
 	"description": "{{description}}",
-	"repository": "{{repository}}",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/{{repository}}.git"
+	},
+	"homepage": "https://github.com/{{repository}}#readme",
 	"author": {
 		"name": "Leon Si",
 		"email": "contact@leonzalion.com",
