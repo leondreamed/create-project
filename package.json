@@ -21,7 +21,7 @@
 	"scripts": {
 		"prepare": "simple-git-hooks",
 		"release": "lionp",
-		"start": "node-ts ./bin/create-project.ts",
+		"start": "node-ts ./src/bin/create-project.ts",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
 		"build": "node-ts ./scripts/build.ts",
 		"lint": "eslint --cache --fix .",

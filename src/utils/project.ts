@@ -107,8 +107,8 @@ export async function createProject(options?: CreateProjectOptions) {
 	} else {
 		replace.sync({
 			files: packageJsonPath,
-			from: ['{{repository}}'],
-			to: [projectRepository.replace(/"/g, '\\"')],
+			from: /{{repository}}/g,
+			to: projectRepository.replace(/"/g, '\\"'),
 		});
 	}
 
