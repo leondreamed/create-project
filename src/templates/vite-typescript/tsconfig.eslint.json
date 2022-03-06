@@ -9,7 +9,7 @@
 		"postcss.config.cjs",
 		"tailwind.config.cjs",
 		"vite.config.ts",
-		"jest.config.js",
+		"vitest.config.ts",
 		".eslintrc.cjs"
 	]
 }
