@@ -17,6 +17,7 @@
 	"main": "./index.js",
 	"scripts": {
 		"prepare": "lion-git-hooks",
+		"build": "node-ts ./scripts/build.ts",
 		"start": "node-ts ./src/index.ts",
 		"test": "vitest run",
 		"lint": "eslint --cache --fix .",
