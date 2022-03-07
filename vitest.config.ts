@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig, configDefaults } from 'vitest/config';
 import { join } from 'desm';
 
 export default defineConfig({
@@ -6,9 +6,9 @@ export default defineConfig({
 		alias: {
 			'~': join(import.meta.url, 'src'),
 			'~test': join(import.meta.url, 'test'),
-		}
+		},
 	},
 	test: {
-		exclude: ['src', 'node_modules']
-	}
-})
+		exclude: [...configDefaults.exclude, 'src/templates/**'],
+	},
+});

@@ -1,7 +1,7 @@
+import { describe, beforeAll, afterAll } from 'vitest';
 import { ProjectType } from '~/types/project.js';
 import { checkCommon } from '~test/utils/check.js';
 import { createProject, removeMyProject } from '~test/utils/project.js';
-import { describe, beforeAll, afterAll } from 'vitest';
 
 describe('creates valid TypeScript project', () => {
 	beforeAll(async () => {

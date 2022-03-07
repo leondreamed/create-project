@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { test, expect } from 'vitest';
 import { getProjectDestFolder, getProjectName } from './project.js';
 import type { ProjectType } from '~/types/project.js';
-import { test, expect } from 'vitest';
 
 export function checkCommon(type: ProjectType) {
 	const projectFolder = getProjectDestFolder(type);

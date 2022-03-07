@@ -1,5 +1,4 @@
 const path = require('path');
-const createAliases = require('@leonzalion/configs/eslint/alias.cjs');
 const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
@@ -8,6 +7,5 @@ module.exports = defineConfig({
 	parserOptions: {
 		project: [path.resolve(__dirname, 'tsconfig.eslint.json')],
 	},
-	ignorePatterns: ['src/templates/**'],
-	settings: createAliases({ '~': './src', '~test': './test' }),
+	ignorePatterns: ['src/templates/**']
 });
