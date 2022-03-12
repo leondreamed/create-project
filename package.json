@@ -25,7 +25,7 @@
 		"test": "vitest run",
 		"build": "node-ts ./scripts/build.ts",
 		"lint": "eslint --cache --fix .",
-		"prettier": "prettier --write src",
+		"prettier": "prettier --write .",
 		"tc": "tsc --noEmit"
 	},
 	"dependencies": {
