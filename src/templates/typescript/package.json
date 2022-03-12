@@ -30,6 +30,7 @@
 		"@types/node": "^17.0.0",
 		"desm": "^1.2.0",
 		"eslint": "^8.5.0",
+		"eslint-define-config": "^1.2.5",
 		"execa": "^6.0.0",
 		"lion-system": "latest",
 		"lint-staged": "^12.1.3",
