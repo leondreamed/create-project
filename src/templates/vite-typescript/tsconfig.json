@@ -5,7 +5,8 @@
 		"outDir": "dist",
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["./src/*"]
+			"~/*": ["./src/*"],
+			"~test/*": ["./src/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./typings"]
 	},

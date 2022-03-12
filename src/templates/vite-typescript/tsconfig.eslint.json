@@ -6,10 +6,8 @@
 		"typings",
 		"test",
 		".markdownlint.cjs",
-		"postcss.config.cjs",
-		"tailwind.config.cjs",
+		"windi.config.ts",
 		"vite.config.ts",
-		"vitest.config.ts",
 		".eslintrc.cjs"
 	]
 }
