@@ -1,11 +1,10 @@
-const createAliases = require('@leonzalion/configs/eslint/alias');
 const path = require('path');
+const { defineConfig } = require('eslint-define-config');
 
-module.exports = {
-	extends: [require.resolve('@leonzalion/configs/eslint')],
+module.exports = defineConfig({
+	extends: [require.resolve('@leonzalion/configs/eslint.cjs')],
 	parserOptions: {
 		project: [path.resolve(__dirname, './tsconfig.eslint.json')],
 		extraFileExtensions: ['.vue'],
 	},
-	settings: createAliases({ '~': './src', '~test': './test' }),
-};
+});
