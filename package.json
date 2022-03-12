@@ -49,7 +49,7 @@
 		"lint-staged": "^12.3.4",
 		"lion-git-hooks": "^1.0.6",
 		"lion-system": "^1.0.10",
-		"lionp": "^1.0.19",
+		"lionp": "^1.0.21",
 		"micromatch": "^4.0.4",
 		"prettier": "^2.5.1",
 		"tsc-alias": "^1.6.3",
