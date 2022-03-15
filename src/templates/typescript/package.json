@@ -14,7 +14,7 @@
 		"url": "https://leonzalion.com"
 	},
 	"type": "module",
-	"main": "./index.js",
+	"exports": "./index.js",
 	"scripts": {
 		"prepare": "lion-git-hooks",
 		"build": "node-ts ./scripts/build.ts",
