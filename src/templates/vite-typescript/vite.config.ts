@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import { join } from 'desm';
+import jsImports from 'vite-plugin-js-imports';
 import windiCSS from 'vite-plugin-windicss';
 
 export default defineConfig({
@@ -10,5 +11,5 @@ export default defineConfig({
 			'~test': join(import.meta.url, 'test'),
 		},
 	},
-	plugins: [vue(), windiCSS()],
+	plugins: [vue(), windiCSS(), jsImports()],
 });
