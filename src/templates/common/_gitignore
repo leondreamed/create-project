@@ -124,3 +124,9 @@ dist-ssr
 # Cache files
 .eslintcache
 tsconfig.tsbuildinfo
+
+# dist .gitkeep
+
+!dist
+dist/*
+!dist/.gitkeep
