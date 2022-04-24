@@ -127,6 +127,6 @@ tsconfig.tsbuildinfo
 
 # dist .gitkeep
 
-!dist
-dist/*
-!dist/.gitkeep
+!**/dist
+**/dist/*
+!**/dist/.gitkeep
