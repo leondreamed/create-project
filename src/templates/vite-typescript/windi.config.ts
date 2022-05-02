@@ -1,4 +1,4 @@
-import { defineConfig } from 'windicss/helpers/index.js';
+import { defineConfig } from 'windicss/helpers';
 
 export default defineConfig({
 	attributify: true,
