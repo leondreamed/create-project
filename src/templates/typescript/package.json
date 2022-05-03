@@ -1,5 +1,5 @@
 {
-	"name": "{{name}}",
+	"name": "{{project_name}}",
 	"version": "0.0.0",
 	"description": "{{description}}",
 	"license": "MIT",
@@ -13,26 +13,15 @@
 		"email": "contact@leonzalion.com",
 		"url": "https://leonzalion.com"
 	},
-	"type": "module",
-	"exports": "./src/index.ts",
 	"scripts": {
-		"preinstall": "pnpm build",
 		"prepare": "lion-git-hooks",
-		"build": "node-ts ./scripts/build.ts",
-		"start": "node-ts ./src/index.ts",
-		"test": "vitest run",
-		"lint": "eslint --cache --fix .",
-		"prettier": "prettier --write .",
-		"tc": "tsc --noEmit"
+		"build": "pnpm recursive run build",
+		"test": "pnpm recursive run test",
+		"lint": "pnpm recursive run lint",
+		"prettier": "pnpm recursive run prettier",
+		"typecheck": "pnpm recursive run typecheck"
 	},
 	"devDependencies": {
-		"@leonzalion/configs": "latest",
-		"@types/node": "latest",
-		"desm": "latest",
-		"eslint-define-config": "latest",
-		"execa": "latest",
-		"lion-system": "latest",
-		"typescript": "latest",
-		"vitest": "latest"
+		"@leonzalion/configs": "latest"
 	}
 }

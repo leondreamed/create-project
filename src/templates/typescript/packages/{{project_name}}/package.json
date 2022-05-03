@@ -2,6 +2,7 @@
 	"name": "{{name}}",
 	"version": "0.0.0",
 	"description": "{{description}}",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/{{repository}}.git"
@@ -13,30 +14,18 @@
 		"url": "https://leonzalion.com"
 	},
 	"type": "module",
+	"exports": "./src/index.ts",
 	"scripts": {
-		"dev": "vite",
-		"build": "vue-tsc --noEmit && vite build",
-		"preview": "vite preview",
+		"preinstall": "pnpm build",
 		"prepare": "lion-git-hooks",
+		"build": "node-ts ./scripts/build.ts",
+		"start": "node-ts ./src/index.ts",
+		"test": "vitest run",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write .",
-		"tc": "vue-tsc --noEmit"
-	},
-	"dependencies": {
-		"pinia": "latest",
-		"vue": "latest"
+		"tc": "tsc --noEmit"
 	},
 	"devDependencies": {
-		"@leonzalion/configs": "latest",
-		"@types/node": "latest",
-		"@vitejs/plugin-vue": "latest",
-		"desm": "latest",
-		"execa": "latest",
-		"typescript": "latest",
-		"vite": "latest",
-		"vite-plugin-js-imports": "latest",
-		"vite-plugin-windicss": "latest",
-		"vue-tsc": "latest",
-		"windicss": "latest"
+		"vitest": "latest"
 	}
 }

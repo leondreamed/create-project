@@ -7,6 +7,7 @@ import inquirer from 'inquirer';
 import { paramCase } from 'change-case';
 import mapObject, { mapObjectSkip } from 'map-obj';
 import type { PackageJson } from 'type-fest';
+import readdir from 'recursive-readdir';
 import { templateOptions } from './template.js';
 import { getTemplateFolderPath } from './paths.js';
 
@@ -76,6 +77,28 @@ export async function createProject(options?: CreateProjectOptions) {
 		overwrite: true,
 	});
 
+	for (const fileName of await readdir(destinationFolder)) {
+		if (/{{.*}}/.test(fileName)) {
+			const filePath = path.join(destinationFolder, fileName);
+			replace.sync({
+				files: filePath,
+				from: ['{{project_name}}', '{{description}}'],
+				to: [
+					projectName.replace(/"/g, '\\"'),
+					projectDescription.replace(/"/g, '\\"'),
+				],
+			});
+
+			fs.renameSync(
+				filePath,
+				path.join(
+					destinationFolder,
+					fileName.replace(/{{project_name}}/g, projectName)
+				)
+			);
+		}
+	}
+
 	// Rename _gitignore to .gitignore
 	fs.renameSync(
 		path.join(destinationFolder, '_gitignore'),
@@ -89,14 +112,6 @@ export async function createProject(options?: CreateProjectOptions) {
 	);
 
 	const packageJsonPath = path.join(destinationFolder, 'package.json');
-	replace.sync({
-		files: packageJsonPath,
-		from: ['{{name}}', '{{description}}'],
-		to: [
-			projectName.replace(/"/g, '\\"'),
-			projectDescription.replace(/"/g, '\\"'),
-		],
-	});
 
 	if (projectRepository.trim() === '') {
 		const packageJson = JSON.parse(
@@ -112,5 +127,8 @@ export async function createProject(options?: CreateProjectOptions) {
 		});
 	}
 
-	fs.writeFileSync(path.join(destinationFolder, 'readme.md'), projectName);
+	fs.writeFileSync(
+		path.join(destinationFolder, 'readme.md'),
+		`# ${projectName}\n`
+	);
 }
