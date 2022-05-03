@@ -1,10 +1,11 @@
+import type { PromptModule } from 'inquirer';
+import inquirer from 'inquirer';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import type { PromptModule } from 'inquirer';
-import inquirer from 'inquirer';
-import { rootPath } from './path.js';
 import type { ProjectType } from '~/types/project.js';
+
+import { rootPath } from './path.js';
 
 export const getProjectName = (type: ProjectType) => `my-${type}-project`;
 export const getProjectDestFolder = (type: ProjectType) =>

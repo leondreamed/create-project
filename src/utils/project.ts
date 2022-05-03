@@ -1,15 +1,15 @@
-import path from 'node:path';
-import fs from 'node:fs';
-import replace from 'replace-in-file';
-import recursiveCopy from 'recursive-copy';
-
-import inquirer from 'inquirer';
 import { paramCase } from 'change-case';
+import inquirer from 'inquirer';
 import mapObject, { mapObjectSkip } from 'map-obj';
+import fs from 'node:fs';
+import path from 'node:path';
+import readdirp from 'readdirp';
+import recursiveCopy from 'recursive-copy';
+import replace from 'replace-in-file';
 import type { PackageJson } from 'type-fest';
-import readdir from 'recursive-readdir';
-import { templateOptions } from './template.js';
+
 import { getTemplateFolderPath } from './paths.js';
+import { templateOptions } from './template.js';
 
 type CreateProjectOptions = { folder: string };
 export async function createProject(options?: CreateProjectOptions) {
@@ -65,35 +65,29 @@ export async function createProject(options?: CreateProjectOptions) {
 	const templateSourceFolder = getTemplateFolderPath(
 		templateOptions[templateOption]
 	);
-	const commonTemplateFolder = getTemplateFolderPath(templateOptions.common);
 	fs.mkdirSync(destinationFolder, { recursive: true });
 
-	await recursiveCopy(commonTemplateFolder, destinationFolder, {
-		dot: true,
-		overwrite: true,
-	});
 	await recursiveCopy(templateSourceFolder, destinationFolder, {
 		dot: true,
 		overwrite: true,
 	});
 
-	for (const fileName of await readdir(destinationFolder)) {
-		if (/{{.*}}/.test(fileName)) {
-			const filePath = path.join(destinationFolder, fileName);
-			replace.sync({
-				files: filePath,
-				from: ['{{project_name}}', '{{description}}'],
-				to: [
-					projectName.replace(/"/g, '\\"'),
-					projectDescription.replace(/"/g, '\\"'),
-				],
-			});
+	for await (const file of readdirp(destinationFolder)) {
+		replace.sync({
+			files: file.fullPath,
+			from: ['{{project_name}}', '{{description}}'],
+			to: [
+				projectName.replace(/"/g, '\\"'),
+				projectDescription.replace(/"/g, '\\"'),
+			],
+		});
 
+		if (/{{.*}}/.test(file.basename)) {
 			fs.renameSync(
-				filePath,
+				file.fullPath,
 				path.join(
 					destinationFolder,
-					fileName.replace(/{{project_name}}/g, projectName)
+					file.basename.replace(/{{project_name}}/g, projectName)
 				)
 			);
 		}

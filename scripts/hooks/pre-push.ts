@@ -1,8 +1,8 @@
-import process from 'node:process';
 import { execaCommandSync as exec } from 'execa';
-import { chProjectDir } from 'lion-system'
+import { chProjectDir } from 'lion-system';
+import process from 'node:process';
 
-chProjectDir(import.meta.url)
+chProjectDir(import.meta.url);
 
 try {
 	exec('pnpm run tc', { stdio: 'inherit' });

@@ -1,6 +1,6 @@
-import process from 'node:process';
 import { execaSync } from 'execa';
 import { chProjectDir } from 'lion-system';
+import process from 'node:process';
 
 chProjectDir(import.meta.url);
 

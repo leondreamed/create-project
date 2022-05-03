@@ -5,7 +5,6 @@
 		"scripts",
 		"vitest.config.ts",
 		".eslintrc.cjs",
-		".markdownlint.cjs",
 		"lint-staged.config.mjs",
 	],
 	"exclude": ["src/templates"]

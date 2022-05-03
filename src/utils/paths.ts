@@ -1,4 +1,5 @@
 import path from 'node:path';
+
 import type { ProjectTemplate } from '~/types/template.js';
 
 export const srcPath = new URL('..', import.meta.url).pathname;

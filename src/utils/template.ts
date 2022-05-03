@@ -14,9 +14,5 @@ export const templateOptions = defineTemplateOptions({
 		folderName: 'vite-typescript',
 		isDisplayed: true,
 	},
-	common: {
-		folderName: 'common',
-		isDisplayed: false,
-	},
 });
 export type TemplateOptions = typeof templateOptions;

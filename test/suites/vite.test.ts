@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, test, expect, beforeAll, afterAll } from 'vitest';
+import { afterAll, beforeAll, describe, expect, test } from 'vitest';
+
 import { ProjectType } from '~/types/project.js';
 import { checkCommon } from '~test/utils/check.js';
 import {

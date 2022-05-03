@@ -1,4 +1,5 @@
-import { describe, beforeAll, afterAll } from 'vitest';
+import { afterAll, beforeAll, describe } from 'vitest';
+
 import { ProjectType } from '~/types/project.js';
 import { checkCommon } from '~test/utils/check.js';
 import { createProject, removeMyProject } from '~test/utils/project.js';
