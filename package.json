@@ -33,7 +33,7 @@
 		"replace-in-file": "^6.3.2"
 	},
 	"devDependencies": {
-		"@leonzalion/configs": "^1.4.1",
+		"@leonzalion/configs": "^1.4.4",
 		"@types/inquirer": "^8.2.1",
 		"@types/node": "^17.0.31",
 		"desm": "^1.2.0",
