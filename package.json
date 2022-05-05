@@ -20,7 +20,7 @@
 		"build": "node-ts ./scripts/build.ts",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write .",
-		"tc": "tsc --noEmit"
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"change-case": "^4.1.2",
