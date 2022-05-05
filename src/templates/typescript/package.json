@@ -22,6 +22,8 @@
 		"typecheck": "pnpm recursive run typecheck"
 	},
 	"devDependencies": {
-		"@leonzalion/configs": "latest"
+		"@leonzalion/configs": "latest",
+		"@types/node": "latest",
+		"typescript": "latest"
 	}
 }
