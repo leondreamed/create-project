@@ -75,6 +75,16 @@ export async function createProject(options?: CreateProjectOptions) {
 		overwrite: true,
 	});
 
+	const replaceTemplatesInFile = (filePath: string) => {
+		const fileContents = fs.readFileSync(filePath, 'utf8');
+		fs.writeFileSync(
+			filePath,
+			fileContents
+				.replace(/{{project_name}}/g, projectName)
+				.replace(/{{description}}/g, projectDescription.replace(/"/g, '\\"'))
+		);
+	};
+
 	// Loop until all files with {{.*}} have been renamed
 	for (;;) {
 		let hasFileBeenRenamed = false;
@@ -84,17 +94,12 @@ export async function createProject(options?: CreateProjectOptions) {
 		});
 
 		for (const file of files) {
-			replace.sync({
-				files: file.fullPath,
-				from: ['{{project_name}}', '{{description}}'],
-				to: [
-					projectName.replace(/"/g, '\\"'),
-					projectDescription.replace(/"/g, '\\"'),
-				],
-			});
+			if (fs.statSync(file.fullPath).isFile()) {
+				replaceTemplatesInFile(file.fullPath);
+			}
 
 			if (/{{.*}}/.test(file.fullPath)) {
-				const destinationPath = file.fullPath.replace(
+				const destinationPath = file.fullPath.replaceAll(
 					/{{project_name}}/g,
 					projectNameDir
 				);
