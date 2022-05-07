@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { afterAll, beforeAll, describe, expect, test } from 'vitest';
+import { beforeAll, describe, expect, test } from 'vitest';
 
 import { ProjectType } from '~/types/project.js';
 import { checkCommon } from '~test/utils/check.js';
@@ -14,10 +14,6 @@ describe('creates valid Vite project', () => {
 	beforeAll(async () => {
 		removeMyProject(ProjectType.vite);
 		await createProject(ProjectType.vite);
-	});
-
-	afterAll(() => {
-		removeMyProject(ProjectType.vite);
 	});
 
 	checkCommon(ProjectType.vite);

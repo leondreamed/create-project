@@ -42,4 +42,10 @@ export function checkCommon(type: ProjectType) {
 			.toString();
 		expect(/{{.*}}/.test(packageJson)).toBe(false);
 	});
+
+	test('the packages/{{project_name}} folder should have been renamed', () => {
+		expect(
+			fs.existsSync(path.join(projectFolder, 'packages/{{project_name}}'))
+		).toBe(false);
+	});
 }

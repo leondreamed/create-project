@@ -72,7 +72,10 @@ export async function createProject(options?: CreateProjectOptions) {
 		overwrite: true,
 	});
 
-	for await (const file of readdirp(destinationFolder)) {
+	for await (const file of readdirp(destinationFolder, {
+		type: 'files_directories',
+	})) {
+		console.log(file);
 		replace.sync({
 			files: file.fullPath,
 			from: ['{{project_name}}', '{{description}}'],
@@ -87,7 +90,12 @@ export async function createProject(options?: CreateProjectOptions) {
 				/{{project_name}}/g,
 				projectName
 			);
-			fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
+
+			if (fs.statSync(file.fullPath).isFile()) {
+				fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
+			} else {
+				fs.mkdirSync(destinationPath, { recursive: true });
+			}
 
 			fs.renameSync(
 				file.fullPath,

@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@leonzalion/configs': ^1.4.4
+  '@leonzalion/configs': ^1.4.7
   '@types/inquirer': ^8.2.1
   '@types/node': ^17.0.31
   change-case: ^4.1.2
@@ -32,7 +32,7 @@ dependencies:
   replace-in-file: 6.3.2
 
 devDependencies:
-  '@leonzalion/configs': 1.4.4_typescript@4.6.4
+  '@leonzalion/configs': 1.4.7_typescript@4.6.4
   '@types/inquirer': 8.2.1
   '@types/node': 17.0.31
   desm: 1.2.0
@@ -270,8 +270,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@leonzalion/configs/1.4.4_typescript@4.6.4:
-    resolution: {integrity: sha512-Fc8K+UogIaxTVdlrzcMwTgZknKCxO1YBeKMW2feteoq0EU/0RsaDEKEAWrP6GUkOVU+Ovpss11OldK/y2c0TRw==}
+  /@leonzalion/configs/1.4.7_typescript@4.6.4:
+    resolution: {integrity: sha512-JlVAoBvuNbacMRHuJ9Xe1XzaIIc2+HfsVwj7oBo9lC29C3K4CmrZaSGWBJfxwN7ZuEPX5Kl+bKOGZDNtt2QFUg==}
     hasBin: true
     dependencies:
       '@commitlint/cli': 16.2.4_@swc+core@1.2.177
