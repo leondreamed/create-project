@@ -5,7 +5,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readdirp from 'readdirp';
 import recursiveCopy from 'recursive-copy';
-import replace from 'replace-in-file';
 import type { PackageJson } from 'type-fest';
 
 import { getTemplateFolderPath } from './paths.js';
@@ -82,6 +81,7 @@ export async function createProject(options?: CreateProjectOptions) {
 			fileContents
 				.replace(/{{project_name}}/g, projectName)
 				.replace(/{{description}}/g, projectDescription.replace(/"/g, '\\"'))
+				.replace(/{{repository}}/g, projectRepository)
 		);
 	};
 
@@ -141,12 +141,6 @@ export async function createProject(options?: CreateProjectOptions) {
 		) as PackageJson;
 		packageJson.repository = undefined;
 		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, '\t'));
-	} else {
-		replace.sync({
-			files: packageJsonPath,
-			from: /{{repository}}/g,
-			to: projectRepository.replace(/"/g, '\\"'),
-		});
 	}
 
 	fs.writeFileSync(

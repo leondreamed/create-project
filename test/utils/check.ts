@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import readdirp from 'readdirp';
 import { expect, test } from 'vitest';
 
 export function checkProject({
@@ -44,5 +45,15 @@ export function checkProject({
 		expect(
 			fs.existsSync(path.join(projectDir, 'packages/{{project_name}}'))
 		).toBe(false);
+	});
+
+	test('none of the files contain unreplaced templates', async () => {
+		const projectFiles = await readdirp.promise(projectDir, { type: 'files' });
+		for (const projectFileName of projectFiles) {
+			expect(
+				/{{.*}}/.test(fs.readFileSync(projectFileName.fullPath, 'utf8')),
+				`${projectFileName.fullPath} has an unreplaced template expression`
+			).toBe(false);
+		}
 	});
 }
