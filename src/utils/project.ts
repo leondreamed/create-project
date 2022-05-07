@@ -61,6 +61,9 @@ export async function createProject(options?: CreateProjectOptions) {
 
 	const destinationFolder =
 		options?.folder ?? paramCase(projectName.toLowerCase());
+	const projectNameDir = projectName.includes('/')
+		? projectName.split('/').at(-1)!
+		: projectName;
 	const templateOption = projectType as keyof typeof templateOptions;
 	const templateSourceFolder = getTemplateFolderPath(
 		templateOptions[templateOption]
@@ -72,35 +75,44 @@ export async function createProject(options?: CreateProjectOptions) {
 		overwrite: true,
 	});
 
-	for await (const file of readdirp(destinationFolder, {
-		type: 'files_directories',
-	})) {
-		console.log(file);
-		replace.sync({
-			files: file.fullPath,
-			from: ['{{project_name}}', '{{description}}'],
-			to: [
-				projectName.replace(/"/g, '\\"'),
-				projectDescription.replace(/"/g, '\\"'),
-			],
+	// Loop until all files with {{.*}} have been renamed
+	for (;;) {
+		let hasFileBeenRenamed = false;
+		// eslint-disable-next-line no-await-in-loop
+		const files = await readdirp.promise(destinationFolder, {
+			type: 'files_directories',
 		});
 
-		if (/{{.*}}/.test(file.basename)) {
-			const destinationPath = file.basename.replace(
-				/{{project_name}}/g,
-				projectName
-			);
+		for (const file of files) {
+			replace.sync({
+				files: file.fullPath,
+				from: ['{{project_name}}', '{{description}}'],
+				to: [
+					projectName.replace(/"/g, '\\"'),
+					projectDescription.replace(/"/g, '\\"'),
+				],
+			});
 
-			if (fs.statSync(file.fullPath).isFile()) {
-				fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
-			} else {
-				fs.mkdirSync(destinationPath, { recursive: true });
+			if (/{{.*}}/.test(file.fullPath)) {
+				const destinationPath = file.fullPath.replace(
+					/{{project_name}}/g,
+					projectNameDir
+				);
+
+				if (fs.statSync(file.fullPath).isFile()) {
+					fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
+				} else {
+					fs.mkdirSync(destinationPath, { recursive: true });
+				}
+
+				fs.renameSync(file.fullPath, destinationPath);
+				hasFileBeenRenamed = true;
+				break;
 			}
+		}
 
-			fs.renameSync(
-				file.fullPath,
-				path.join(destinationFolder, destinationPath)
-			);
+		if (!hasFileBeenRenamed) {
+			break;
 		}
 	}
 

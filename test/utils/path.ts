@@ -1,1 +1,3 @@
-export const rootPath = new URL('..', import.meta.url).pathname;
+import { join } from 'desm';
+
+export const tempDir = join(import.meta.url, '../temp');

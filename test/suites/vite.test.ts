@@ -3,24 +3,34 @@ import path from 'node:path';
 import { beforeAll, describe, expect, test } from 'vitest';
 
 import { ProjectType } from '~/types/project.js';
-import { checkCommon } from '~test/utils/check.js';
+import { checkProject } from '~test/utils/check.js';
+import { tempDir } from '~test/utils/path.js';
 import {
 	createProject,
-	getProjectDestFolder,
+	getProjectName,
 	removeMyProject,
 } from '~test/utils/project.js';
 
 describe('creates valid Vite project', () => {
+	const projectName = getProjectName(ProjectType.vite);
+	const projectDestDir = path.join(tempDir, 'my-vite-project');
+
 	beforeAll(async () => {
-		removeMyProject(ProjectType.vite);
-		await createProject(ProjectType.vite);
+		removeMyProject(projectDestDir);
+		await createProject({
+			projectDestDir,
+			projectType: ProjectType.vite,
+			projectName,
+		});
 	});
 
-	checkCommon(ProjectType.vite);
+	checkProject({
+		projectDir: projectDestDir,
+		projectName,
+	});
 
 	test('should contain vite.config.ts', () => {
-		const projectFolder = getProjectDestFolder(ProjectType.vite);
-		expect(fs.existsSync(path.join(projectFolder, 'vite.config.ts'))).toBe(
+		expect(fs.existsSync(path.join(projectDestDir, 'vite.config.ts'))).toBe(
 			true
 		);
 	});
