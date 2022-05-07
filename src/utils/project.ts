@@ -83,12 +83,15 @@ export async function createProject(options?: CreateProjectOptions) {
 		});
 
 		if (/{{.*}}/.test(file.basename)) {
+			const destinationPath = file.basename.replace(
+				/{{project_name}}/g,
+				projectName
+			);
+			fs.mkdirSync(path.dirname(destinationPath), { recursive: true });
+
 			fs.renameSync(
 				file.fullPath,
-				path.join(
-					destinationFolder,
-					file.basename.replace(/{{project_name}}/g, projectName)
-				)
+				path.join(destinationFolder, destinationPath)
 			);
 		}
 	}
