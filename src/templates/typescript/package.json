@@ -1,18 +1,5 @@
 {
-	"name": "{{project_name}}",
-	"version": "0.0.0",
-	"description": "{{description}}",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/{{repository}}.git"
-	},
-	"homepage": "https://github.com/{{repository}}#readme",
-	"author": {
-		"name": "Leon Si",
-		"email": "contact@leonzalion.com",
-		"url": "https://leonzalion.com"
-	},
+	"name": "@{{project_name}}/monorepo",
 	"scripts": {
 		"prepare": "lion-git-hooks",
 		"build": "pnpm recursive run build"
