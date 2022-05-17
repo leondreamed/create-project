@@ -22,7 +22,6 @@
 	},
 	"devDependencies": {
 		"execa": "^6.1.0",
-		"lion-system": "^1.3.25",
 		"vitest": "latest"
 	}
 }
