@@ -30,9 +30,9 @@
 		"@vitejs/plugin-vue": "latest",
 		"desm": "latest",
 		"execa": "latest",
+		"rollup-plugin-js-imports": "latest",
 		"typescript": "latest",
 		"vite": "latest",
-		"vite-plugin-js-imports": "latest",
 		"vite-plugin-windicss": "latest",
 		"vue-tsc": "latest",
 		"windicss": "latest"
