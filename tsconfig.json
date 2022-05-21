@@ -5,15 +5,9 @@
 		"baseUrl": ".",
 		"rootDir": ".",
 		"paths": {
-			"~/*": [
-				"./src/*"
-			]
+			"~/*": ["./src/*"]
 		}
 	},
-	"include": [
-		"./src",
-	],
-	"exclude": [
-		"./src/templates"
-	]
+	"include": ["./src"],
+	"exclude": ["./src/templates"]
 }
