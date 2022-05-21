@@ -1,7 +1,7 @@
 {
 	"name": "@{{project_name}}/monorepo",
 	"scripts": {
-		"prepare": "lion-git-hooks",
+		"prepare": "lionconfig",
 		"build": "pnpm recursive run build"
 	},
 	"devDependencies": {
