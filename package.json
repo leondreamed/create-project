@@ -1,13 +1,13 @@
 {
 	"name": "@leonzalion/create-project",
-	"version": "1.1.13",
-	"exports": "./create-project.js",
-	"license": "MIT",
 	"type": "module",
+	"version": "1.1.13",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/leonzalion/create-project.git"
 	},
+	"exports": "./create-project.js",
 	"homepage": "https://github.com/leonzalion/create-project#readme",
 	"bin": {
 		"create-project": "./bin/create-project.js"
