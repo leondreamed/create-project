@@ -121,6 +121,18 @@ export async function createProject(options?: CreateProjectOptions) {
 		}
 	}
 
+	// Rename _gitignore to .gitignore
+	fs.renameSync(
+		path.join(destinationFolder, '_gitignore'),
+		path.join(destinationFolder, '.gitignore')
+	);
+
+	// Rename _gitattributes to .gitattributes
+	fs.renameSync(
+		path.join(destinationFolder, '_gitattributes'),
+		path.join(destinationFolder, '.gitattributes')
+	);
+
 	const packageJsonPath = path.join(destinationFolder, 'package.json');
 
 	if (projectRepository.trim() === '') {
