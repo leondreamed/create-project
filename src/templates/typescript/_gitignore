@@ -120,8 +120,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-!dist
-dist/*
-!dist/.gitkeep
-
 temp
