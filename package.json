@@ -19,27 +19,28 @@
 	},
 	"dependencies": {
 		"change-case": "^4.1.2",
-		"commander": "^9.3.0",
+		"commander": "^9.4.0",
 		"execa": "^6.1.0",
 		"fast-sort": "^3.2.0",
-		"inquirer": "^9.0.1",
+		"inquirer": "^9.1.2",
 		"map-obj": "^5.0.2",
 		"readdirp": "^3.6.0",
 		"recursive-copy": "^2.0.14",
 		"replace-in-file": "^6.3.5"
 	},
 	"devDependencies": {
-		"@types/inquirer": "^8.2.1",
-		"@types/node": "^18.0.4",
+		"@types/inquirer": "^9.0.1",
+		"@types/node": "^18.7.20",
+		"@yarnpkg/core": "4.0.0-rc.20",
 		"desm": "^1.3.0",
 		"execa": "^6.0.0",
 		"globby": "^13.1.2",
 		"lint-staged": "^13.0.3",
-		"lionconfig": "^1.7.27",
+		"lionconfig": "^1.8.0",
 		"micromatch": "^4.0.5",
-		"type-fest": "^2.16.0",
-		"typescript": "^4.7.4",
-		"vitest": "^0.18.0"
+		"type-fest": "^3.0.0",
+		"typescript": "^4.8.3",
+		"vitest": "^0.23.4"
 	},
 	"publishConfig": {
 		"directory": "dist"
