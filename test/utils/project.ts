@@ -1,6 +1,7 @@
+import fs from 'node:fs';
+
 import type { PromptModule } from 'inquirer';
 import inquirer from 'inquirer';
-import fs from 'node:fs';
 
 import type { ProjectType } from '~/types/project.js';
 

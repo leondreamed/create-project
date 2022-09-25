@@ -1,7 +1,8 @@
+import * as fs from 'node:fs';
+
 import { execaCommandSync as exec } from 'execa';
 import { globbySync } from 'globby';
 import { chProjectDir, copyPackageFiles, rmDist } from 'lionconfig';
-import * as fs from 'node:fs';
 
 chProjectDir(import.meta.url);
 rmDist();

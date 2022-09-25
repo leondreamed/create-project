@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+
 import { beforeAll, describe } from 'vitest';
 
 import { ProjectType } from '~/types/project.js';

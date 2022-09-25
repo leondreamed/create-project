@@ -1,8 +1,9 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
 import { paramCase } from 'change-case';
 import inquirer from 'inquirer';
 import mapObject, { mapObjectSkip } from 'map-obj';
-import fs from 'node:fs';
-import path from 'node:path';
 import readdirp from 'readdirp';
 import recursiveCopy from 'recursive-copy';
 import type { PackageJson } from 'type-fest';
@@ -47,6 +48,7 @@ export async function createProject(options?: CreateProjectOptions) {
 			message: 'What type of project would you like to create?',
 			choices: Object.keys(
 				mapObject(templateOptions, (key, option) =>
+					// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 					option.isDisplayed ? [key, option] : mapObjectSkip
 				)
 			),
@@ -69,6 +71,7 @@ export async function createProject(options?: CreateProjectOptions) {
 	);
 	fs.mkdirSync(destinationFolder, { recursive: true });
 
+	// @ts-expect-error: bad types
 	await recursiveCopy(templateSourceFolder, destinationFolder, {
 		dot: true,
 		overwrite: true,
