@@ -23,7 +23,7 @@ export async function createProject({
 }) {
 	inquirer.prompt = (async () => ({
 		projectType,
-		projectRepository: 'leonzalion/my-repo',
+		projectRepository: 'leondreamed/my-repo',
 		projectDescription: 'my project',
 		projectName,
 		isLibrary: false,

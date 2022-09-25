@@ -1,14 +1,14 @@
 {
-	"name": "@leonzalion/create-project",
+	"name": "@leondreamed/create-project",
 	"type": "module",
 	"version": "1.1.18",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/leonzalion/create-project.git"
+		"url": "https://github.com/leondreamed/create-project.git"
 	},
 	"exports": "./create-project.js",
-	"homepage": "https://github.com/leonzalion/create-project#readme",
+	"homepage": "https://github.com/leondreamed/create-project#readme",
 	"bin": {
 		"create-project": "./bin/create-project.js"
 	},

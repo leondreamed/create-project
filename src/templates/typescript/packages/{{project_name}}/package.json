@@ -10,8 +10,8 @@
 	"homepage": "https://github.com/{{repository}}#readme",
 	"author": {
 		"name": "Leon Si",
-		"email": "contact@leonzalion.com",
-		"url": "https://leonzalion.com"
+		"email": "leon@leondreamed.com",
+		"url": "https://leondreamed.com"
 	},
 	"type": "module",
 	"exports": "./src/index.ts",

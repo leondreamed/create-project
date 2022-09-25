@@ -40,7 +40,7 @@ export async function createProject(options?: CreateProjectOptions) {
 			type: 'input',
 			name: 'projectRepository',
 			message:
-				'What is the repository for this project (e.g. leonzalion/my-repo-name)? (leave blank if none)',
+				'What is the repository for this project (e.g. leondreamed/my-repo-name)? (leave blank if none)',
 		},
 		{
 			type: 'list',
