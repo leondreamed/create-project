@@ -16,9 +16,8 @@
 	"type": "module",
 	"exports": "./src/index.ts",
 	"scripts": {
-		"preinstall": "pnpm build",
-		"build": "node-ts ./scripts/build.ts",
-		"start": "node-ts ./src/index.ts"
+		"build": "ts-node ./scripts/build.ts",
+		"start": "ts-node ./src/index.ts"
 	},
 	"devDependencies": {
 		"execa": "^6.1.0",
