@@ -139,7 +139,7 @@ export async function createProject(options?: CreateProjectOptions) {
 		path.join(destinationFolder, '.gitattributes')
 	);
 
-	const packageJsonPath = path.join(destinationFolder, 'package.json');
+	const packageJsonPath = path.join(destinationFolder, 'packages', projectNameDir, 'package.json');
 	const packageJson = JSON.parse(
 		fs.readFileSync(packageJsonPath).toString()
 	) as PackageJson;
