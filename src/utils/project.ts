@@ -11,14 +11,17 @@ import type { PackageJson } from 'type-fest';
 import { getTemplateFolderPath } from './paths.js';
 import { templateOptions } from './template.js';
 
-type CreateProjectOptions = { folder: string };
+interface CreateProjectOptions {
+	folder: string;
+}
+
 export async function createProject(options?: CreateProjectOptions) {
 	const {
 		projectType,
 		projectName,
 		projectDescription,
 		projectRepository,
-		isLibrary: _,
+		isLibrary,
 	} = await inquirer.prompt<{
 		projectType: string;
 		projectName: string;
@@ -137,15 +140,19 @@ export async function createProject(options?: CreateProjectOptions) {
 	);
 
 	const packageJsonPath = path.join(destinationFolder, 'package.json');
+	const packageJson = JSON.parse(
+		fs.readFileSync(packageJsonPath).toString()
+	) as PackageJson;
 
 	if (projectRepository.trim() === '') {
-		const packageJson = JSON.parse(
-			fs.readFileSync(packageJsonPath).toString()
-		) as PackageJson;
 		packageJson.repository = undefined;
-		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, '\t'));
 	}
 
+	if (isLibrary) {
+		packageJson.publishConfig = { directory: 'dist' };
+	}
+
+	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, '\t'));
 	fs.writeFileSync(
 		path.join(destinationFolder, 'readme.md'),
 		`# ${projectName}\n`
