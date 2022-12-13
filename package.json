@@ -29,16 +29,16 @@
 	},
 	"devDependencies": {
 		"@types/inquirer": "^9.0.3",
-		"@types/node": "^18.11.13",
+		"@types/node": "^18.11.14",
 		"desm": "^1.3.0",
 		"execa": "^6.0.0",
 		"globby": "^13.1.3",
 		"lint-staged": "^13.1.0",
-		"lionconfig": "^2.2.0",
+		"lionconfig": "^2.2.4",
 		"micromatch": "^4.0.5",
-		"type-fest": "^3.3.0",
+		"type-fest": "^3.4.0",
 		"typescript": "^4.9.4",
-		"vitest": "^0.25.7"
+		"vitest": "^0.25.8"
 	},
 	"publishConfig": {
 		"directory": "dist"
